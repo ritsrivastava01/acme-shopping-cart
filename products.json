@@ -1,0 +1,65 @@
+{"products": [
+	{
+		"id": 1,
+		"title": "Android",
+		"image": "assets/images/1076085000_f2c39ddd24_z.jpg",
+	  "priceNew": 200,
+	  "priceOld": 150,
+	  "size":"One Size",
+	  "isSortlisted":true,
+	  "isAddedtocart":true
+	},
+	{
+		"id": 2,
+		"title": "Java",
+		"image": "assets/images/283182167_5a1b5b13c1_z.jpg",
+		"priceNew": 400,
+	  	"priceOld": 350,
+	  	"size":"6-12 M",
+	  	"isSortlisted":false,
+	 	 "isAddedtocart":false
+
+	},
+	{
+		"id": 3,
+		"title": "Angular JS",
+		"image": "assets/images/QuickCollarNeck_wb.jpg",
+	  "priceNew": 600,
+	  "priceOld": 550,
+	  "size":"6-12 M",
+	  "isSortlisted":false,
+	  "isAddedtocart":false
+
+	},
+	{
+		"id": 4,
+		"title": "PHP",
+		"image": "assets/images/11947278725_979391b9a2_z.jpg",
+	  "priceNew": 2100,
+	  "priceOld": 1500,
+	  "size":"6-12 M",
+	  "isSortlisted":false,
+	  "isAddedtocart":false
+	},
+	{
+		"id": 5,
+		"title": "HTML5",
+		"image": "assets/images/2705207852_2758109a1b_z.jpg",
+	  "priceNew": 600,
+	  "priceOld": 400,
+	  "size":"6-12 M",
+	  "isSortlisted":false,
+	  "isAddedtocart":false
+	},
+	{
+		"id": 6,
+		"title": "CSS",
+		"image": "assets/images/12099351973_062cdcd1ee_z.jpg",
+	  "priceNew": 1200,
+	  "priceOld": 890,
+	  "size":"6-12 M",
+	  "isSortlisted":false,
+	  "isAddedtocart":false
+	}
+
+]}

@@ -1,0 +1,33 @@
+<ul class="products">
+    <li ng-repeat="product in directiveScope" class="col-sm-6 col-md-4 col-xs-12" style="text-align: center;" >
+        <div style=" margin: 0 auto;height: 100%;width: 100%;">
+            <a>
+                <div class="image" ng-style="{'background-image':'url({{product.image}})'}"></div>
+
+                <h1><p>De Berry Flower Hairband -...</p></h1>
+
+                <h2><p>{{product.size}}</p></h2>
+                <h2><p style="display: inline">Rs {{product.priceNew}}</p> | <p style="display: inline;text-decoration: line-through;">Rs {{product.priceOld}}</p></h2>
+                <div class="informations">
+                <div ng-switch on="product.isSortlisted">
+                    <div class="fresh" ng-switch-when="false">
+
+                    </div>
+                    <div class="sortlisted" ng-switch-when="true">
+
+                    </div>
+                </div>
+
+                    <button  ng-disabled="product.isAddedtocart" class="buttonApp" style="float: right" onclick="AddToCart('814890','1','NO','0',true);"
+                    <button >
+                        <span>{{product.isAddedtocart ? 'Added In Cart' : 'ADD TO CART'}}</span>
+                    </button>
+                    </button>
+
+                </div>
+            </a>
+            <div ng-if="product.isAddedtocart" class="adc">added in cart</div>
+        </div>
+    </li>
+
+</ul>

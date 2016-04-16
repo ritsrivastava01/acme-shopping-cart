@@ -1,0 +1,249 @@
+@font-face {
+    font-family: 'newFont';
+    src: url('../fonts/Armata-Regular-webfont.eot');
+    src: url('../fonts/Armata-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Armata-Regular-webfont.woff') format('woff'),
+    url('../fonts/Armata-Regular-webfont.ttf') format('truetype')
+}
+
+html{
+    height: 100%
+}
+label,p{
+    color: #4d4d4d;
+}
+body {
+    height: 100%;
+    background-image: url(http://cdn.firstcry.com/brainbees/images/Premium-Boutique-pattern.jpg);
+    background-repeat: repeat
+/*
+    background: #009DDC !important; /!* For browsers that do not support gradients *!/
+    background: -webkit-linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* For Safari 5.1 to 6.0 *!/
+    background: -o-linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* For Opera 11.1 to 12.0 *!/
+    background: -moz-linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* For Firefox 3.6 to 15 *!/
+    background: linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* Standard syntax *!/
+    background-repeat: repeat-x;*/
+}
+
+.glyphicon-shopping-cart,.glyphicon-heart{
+    font-size: 20px;
+}
+
+.adc{
+    background: none repeat scroll 0 0 #fff;
+    box-shadow:0px 0px 10px 6px rgba(119, 119, 119, 0.34);
+    color: #5f5f5f;
+    cursor: default;
+    display: block;
+    font-size: 15px;
+    color: #363636;
+    font-style: italic;
+    font-weight: 700;
+    height: 26px;
+    left: 100px;
+    line-height: 26px;
+    position: absolute;
+    top: 110px;
+    width: 160px;
+    z-index: 1;
+    vertical-align: middle;
+    text-align: center;
+border-radius: 5px;
+}
+.overlay {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: .1;
+    z-index: 1000;
+}
+
+.products {
+    display:block;
+    width:100%;
+    height:100%;
+    position:relative;
+
+    font-size:0px;
+    list-style:none;
+    text-align: center
+}
+
+.products li {
+    display:inline-block;
+
+    height:317px;
+    position:relative;
+    margin:0px;
+
+    z-index:1;
+}
+
+.products li:hover {
+    z-index:2;
+}
+
+.products li a {
+    display:block;
+    width:80%;
+    height:auto;
+    padding:10px;
+    position:absolute;
+    background-color:white;
+    cursor:pointer;
+
+
+}
+
+.products li:hover a {
+    box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+    -o-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+    -ms-box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+}
+
+.products li a .image {
+    display:block;
+    height:200px;
+    position:relative;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-color:black;
+}
+
+.products li a h1 {
+    display:block;
+    height:auto;
+    margin:10px 0px;
+    font-size: 15px;
+    font-weight:bold;
+
+}
+.products li a:hover{
+    text-decoration: none;
+}
+
+.products li a h2 {
+    display:block;
+    height:auto;
+    margin:10px 0px;
+    color: #999;
+    font-size:12px;
+    font-weight:normal;
+}
+
+.products li a .informations {
+    display:none;
+}
+
+.products li a .informations p,
+.products li a .informations label {
+    display:inline-block;
+    height:auto;
+    margin:10px 0px;
+    float: left;
+    font-size:10px;
+    color:grey;
+    font-weight:normal;
+    width: 50%;
+}
+.fresh{
+    background-image: url(http://cdn.firstcry.com/brainbees/images/premium/premium-sprite.png);
+    margin-left: 6px;
+    /* margin-top: 13px; */
+    text-align: center;
+    margin-left: 8px;
+    background-position: -290px 4px;
+    display: block;
+    width: 32px;
+    height: 38px;
+    border: 1px solid #ccc;
+    float: left;
+
+}
+.fresh:hover{
+    background-position: -344px 4px;
+
+}
+.sortlisted{
+    background-image: url(http://cdn.firstcry.com/brainbees/images/premium/premium-sprite.png);
+    margin-left: 6px;
+    /* margin-top: 13px; */
+    text-align: center;
+    margin-left: 8px;
+    background-position: -344px 4px;
+    display: block;
+    width: 32px;
+    height: 38px;
+    border: 1px solid #ccc;
+    float: left;
+
+}
+.cartIcon
+{
+    position: absolute;
+    top: 2px;
+    right: 0px;
+    background-color: #E91E1E;
+    width: 23px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.products li a:hover .informations {
+    display:block;
+}
+
+/*.products li a:hover a .informations {
+    display:block;
+}*/
+
+
+
+
+
+
+.buttonApp{
+    font-size: 15px;
+
+    border: solid 1px #eee;
+    bottom: 175px;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+    color: #aaa;
+    background: none;
+    display: block;
+
+}
+button:hover{
+    background-color: #0da6e0;;
+    border:none;
+    color: #FFF;
+}
+
+.animate-hide {
+    -webkit-transition: 1025ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 1025ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 1025ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 1025ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 1025ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+
+}
+
+.animate-hide.ng-hide {
+    line-height:0;
+    opacity:0;
+    padding:0 10px;
+    left: -100%
+}
