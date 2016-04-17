@@ -1,4 +1,7 @@
+
+
 <ul class="products">
+
     <li ng-repeat="product in directiveScope" class="col-sm-6 col-md-4 col-xs-12" style="text-align: center;" >
         <div style=" margin: 0 auto;height: 100%;width: 100%;">
             <a>
@@ -10,6 +13,8 @@
                 <h2><p style="display: inline">Rs {{product.priceNew}}</p> | <p style="display: inline;text-decoration: line-through;">Rs {{product.priceOld}}</p></h2>
                 <div class="informations">
                 <div ng-switch on="product.isSortlisted">
+
+
                     <div class="fresh" ng-switch-when="false">
 
                     </div>

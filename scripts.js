@@ -1,17 +1,45 @@
 'use strict';
 
 //Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
+angular.module('acmeApp')
+
+.controller('mainCntrl',function ($scope, $http, $modal,_shoppingCartData,$state,$rootScope) {
 
 
-acmeApp.controller('PetShopCtrl', function ($scope, $http, $modal) {
+
+		_shoppingCartData.loadShoppingData(function(){
+			$state.transitionTo(COMMON.NAME.HOME);
+			$scope.categories =_shoppingCartData.getGroupLabel();
+			$scope.corpName="ACME Corp";
+			$scope.wishlistcount=5;
+			$scope.cartcount=12;
+			//$scope.categories;
+		});
+		$scope.autocopletetext="";
+		$scope.$on('clrAotuomplet',function()
+		{
+			$scope.selectedCategory=null;
+			$rootScope.$broadcast('clrText',{});
+
+		})
+
+		$scope.selectedCategory=null;
+		$scope.refreshProductGrid =function(newValue){
+			if(newValue!=null)
+			$scope.$broadcast('refreshGrid',newValue.originalObject);
+			else
+				$scope.$broadcast('refreshGrid',null);
+		};
+
+
 	$scope.myValue = false;
 		$scope.cart = [];
 
 		// Load products from server
-		$http.get('products.json').success(function (response) {
+		/*$http.get('products.json').success(function (response) {
 			$scope.products = response.products;
 		});
-
+*/
 		$scope.addToCart = function (product) {
 			var found = false;
 			$scope.cart.forEach(function (item) {
@@ -42,9 +70,9 @@ acmeApp.controller('PetShopCtrl', function ($scope, $http, $modal) {
 				}
 			});
 		};
-	});
+	})
 
-acmeApp.controller('CheckoutCtrl', function ($scope, totalAmount) {
+.controller('CheckoutCtrl', function ($scope, totalAmount) {
 		$scope.totalAmount = totalAmount;
 
 		$scope.onSubmit = function () {

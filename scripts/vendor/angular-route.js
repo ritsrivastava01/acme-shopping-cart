@@ -277,7 +277,7 @@ function $RouteProvider(){
        to get it working on jsfiddle as well.
 
      <example module="ngViewExample" deps="angular-route.js">
-       <file name="index.html">
+       <file name="productGrid.html">
          <div ng-controller="MainCntl">
            Choose:
            <a href="Book/Moby">Moby</a> |
@@ -632,7 +632,7 @@ ngRouteModule.provider('$routeParams', $RouteParamsProvider);
  * @example
  * <pre>
  *  // Given:
- *  // URL: http://server.com/index.html#/Chapter/1/Section/2?search=moby
+ *  // URL: http://server.com/productGrid.html#/Chapter/1/Section/2?search=moby
  *  // Route: /Chapter/:chapterId/Section/:sectionId
  *  //
  *  // Then
@@ -653,7 +653,7 @@ ngRouteModule.directive('ngView', ngViewFactory);
  * @description
  * # Overview
  * `ngView` is a directive that complements the {@link ngRoute.$route $route} service by
- * including the rendered template of the current route into the main layout (`index.html`) file.
+ * including the rendered template of the current route into the productGrid layout (`productGrid.html`) file.
  * Every time the current route changes, the included view changes with it according to the
  * configuration of the `$route` service.
  *
@@ -669,8 +669,8 @@ ngRouteModule.directive('ngView', ngViewFactory);
  * @priority 400
  * @example
     <example module="ngViewExample" deps="angular-route.js" animations="true">
-      <file name="index.html">
-        <div ng-controller="MainCntl as main">
+      <file name="productGrid.html">
+        <div ng-controller="MainCntl as productGrid">
           Choose:
           <a href="Book/Moby">Moby</a> |
           <a href="Book/Moby/ch/1">Moby: Ch1</a> |
@@ -683,11 +683,11 @@ ngRouteModule.directive('ngView', ngViewFactory);
           </div>
           <hr />
 
-          <pre>$location.path() = {{main.$location.path()}}</pre>
-          <pre>$route.current.templateUrl = {{main.$route.current.templateUrl}}</pre>
-          <pre>$route.current.params = {{main.$route.current.params}}</pre>
-          <pre>$route.current.scope.name = {{main.$route.current.scope.name}}</pre>
-          <pre>$routeParams = {{main.$routeParams}}</pre>
+          <pre>$location.path() = {{productGrid.$location.path()}}</pre>
+          <pre>$route.current.templateUrl = {{productGrid.$route.current.templateUrl}}</pre>
+          <pre>$route.current.params = {{productGrid.$route.current.params}}</pre>
+          <pre>$route.current.scope.name = {{productGrid.$route.current.scope.name}}</pre>
+          <pre>$routeParams = {{productGrid.$routeParams}}</pre>
         </div>
       </file>
 

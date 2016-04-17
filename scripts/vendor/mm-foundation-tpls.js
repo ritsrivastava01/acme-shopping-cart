@@ -1112,7 +1112,7 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
 
         // Create a faux modal div just to measure its
         // distance to top
-        var faux = angular.element('<div class="reveal-modal" style="z-index:-1""></div>');
+        var faux = angular.element('<div class="reveal-modal" style="z-productGrid:-1""></div>');
         parent.append(faux[0]);
         cssTop = parseInt($window.getComputedStyle(faux[0]).top) || 0;
         var openAt = calculateModalTop(faux, cssTop);
@@ -2264,7 +2264,7 @@ angular.module('mm.foundation.tabs', [])
  *
  * @example
 <example module="mm.foundation">
-  <file name="index.html">
+  <file name="productGrid.html">
     <tabset>
       <tab heading="Tab 1"><b>First</b> Content!</tab>
       <tab heading="Tab 2"><i>Second</i> Content!</tab>
@@ -2314,7 +2314,7 @@ angular.module('mm.foundation.tabs', [])
  *
  * @example
 <example module="mm.foundation">
-  <file name="index.html">
+  <file name="productGrid.html">
     <div ng-controller="TabsDemoCtrl">
       <button class="button small" ng-click="items[0].active = true">
         Select item 1, using active binding
@@ -2365,7 +2365,7 @@ angular.module('mm.foundation.tabs', [])
  *
  * @example
 <example module="mm.foundation">
-  <file name="index.html">
+  <file name="productGrid.html">
     <tabset>
       <tab>
         <tab-heading><b>HTML</b> in my titles?!</tab-heading>
@@ -3524,8 +3524,8 @@ angular.module("template/progressbar/progressbar.html", []).run(["$templateCache
 angular.module("template/rating/rating.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/rating/rating.html",
     "<span ng-mouseleave=\"reset()\">\n" +
-    "  <i ng-repeat=\"r in range\" ng-mouseenter=\"enter($index + 1)\" ng-click=\"rate($index + 1)\" class=\"fa\"\n" +
-    "    ng-class=\"$index < val && (r.stateOn || 'fa-star') || (r.stateOff || 'fa-star-o')\"></i>\n" +
+    "  <i ng-repeat=\"r in range\" ng-mouseenter=\"enter($productGrid + 1)\" ng-click=\"rate($productGrid + 1)\" class=\"fa\"\n" +
+    "    ng-class=\"$productGrid < val && (r.stateOn || 'fa-star') || (r.stateOff || 'fa-star-o')\"></i>\n" +
     "</span>\n" +
     "");
 }]);
@@ -3606,8 +3606,8 @@ angular.module("template/typeahead/typeahead-match.html", []).run(["$templateCac
 angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/typeahead/typeahead-popup.html",
     "<ul class=\"f-dropdown\" ng-style=\"{display: isOpen()&&'block' || 'none', top: position.top+'px', left: position.left+'px'}\">\n" +
-    "    <li ng-repeat=\"match in matches\" ng-class=\"{active: isActive($index) }\" ng-mouseenter=\"selectActive($index)\" ng-click=\"selectMatch($index)\">\n" +
-    "        <div typeahead-match index=\"$index\" match=\"match\" query=\"query\" template-url=\"templateUrl\"></div>\n" +
+    "    <li ng-repeat=\"match in matches\" ng-class=\"{active: isActive($productGrid) }\" ng-mouseenter=\"selectActive($productGrid)\" ng-click=\"selectMatch($productGrid)\">\n" +
+    "        <div typeahead-match productGrid=\"$productGrid\" match=\"match\" query=\"query\" template-url=\"templateUrl\"></div>\n" +
     "    </li>\n" +
     "</ul>\n" +
     "");

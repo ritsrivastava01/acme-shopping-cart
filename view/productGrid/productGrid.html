@@ -1,0 +1,40 @@
+
+
+<div >
+    <ul style="color:#FFF">
+        <li class="cl_pa" style="width: 170px">
+
+            <label>Filter By:</label>
+            <label> {{filterBy}}</label>
+
+            <img style="height: 20px;" ng-if="filterBy!='All'" ng-src="{{filterByImage}}"/>
+            <button type="button" class="close" ng-if="filterBy!='All'" ng-click="refreshProductList(null)" aria-label="Close"><span aria-hidden="true"></span></button>
+            <button type="button" class="close" ng-if="filterBy!='All'"  aria-label="Close"><span aria-hidden="true"></span></button></li>
+        <li class="cl_pa" >shortlist</li>
+        <li class="cl_pa" >shortlist</li>
+    </ul>
+</div>
+
+
+<!--
+<div class="ctr">
+    <div class="btin_srtp">
+        <ul>
+            <li class="cl_pa" style="width: 170px">
+
+                <label>Filter By:</label>
+                <label> {{filterBy}}</label>
+
+                <img style="height: 20px;" ng-if="filterBy!='All'" ng-src="{{filterByImage}}"/>
+                <button type="button" class="close" ng-if="filterBy!='All'" ng-click="refreshProductList(null)" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               &lt;!&ndash; <button type="button" class="close" ng-if="filterBy!='All'"  aria-label="Close"><span aria-hidden="true"></span></button></li>&ndash;&gt;
+            <li class="cl_pa" >shortlist</li>
+            <li class="cl_pa" >shortlist</li>
+        </ul>
+    </div>
+</div>-->
+<div style="overflow-y: auto"  ng-style="{height: hgt+ 'px'}">
+
+
+    <dir-product-item data="products"></dir-product-item>
+</div>

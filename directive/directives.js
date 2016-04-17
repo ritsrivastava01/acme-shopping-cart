@@ -14,6 +14,41 @@ acmeApp.directive('dirProductItem',function(){
     {
         return{
             restrict:'E',
-            templateUrl:'template/header.html'
+            transclude: true,
+            scope:{
+                corpName:"=name",
+                headerCategorie:'=headerCategories',
+                wishlistCount:'=wishlistCount',
+                cartCount:"=cartCount",
+                change:'&onchangeee'
+            },
+            templateUrl:'template/header.html',
+            link:function($scope, elem, attrs, ctrl){
+                $scope.selectedCategory=null;
+
+                $scope.$watch(
+                    'selectedCategory',function(newValue, oldValue){
+
+
+
+                        if($scope.selectedCategory!=null)
+                        {
+
+                            $scope.change({newValue: newValue});
+                        }
+                        else{
+
+                            $scope.change({newValue: null});
+                        }
+                        /*debugger;
+                        if($scope.selectedCategory!=null)
+                            $scope.$emit('refreshGrid',newValue.originalObject);
+                        else{
+                            $scope.$broadcast('refreshGrid',null);
+                        }*/
+                    }
+                )
+            }
+
         }
     })

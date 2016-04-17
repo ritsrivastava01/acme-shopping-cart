@@ -1,5 +1,8 @@
 {"products": [
 	{
+	  "category":"Men",
+	  "categoryId":1,
+	  "categoryImage":"assets/images/men.svg",
 		"id": 1,
 		"title": "Android",
 		"image": "assets/images/1076085000_f2c39ddd24_z.jpg",
@@ -8,8 +11,12 @@
 	  "size":"One Size",
 	  "isSortlisted":true,
 	  "isAddedtocart":true
+
 	},
 	{
+	  "category":"Men",
+	  "categoryId":1,
+	  "categoryImage":"assets/images/men.svg",
 		"id": 2,
 		"title": "Java",
 		"image": "assets/images/283182167_5a1b5b13c1_z.jpg",
@@ -21,6 +28,9 @@
 
 	},
 	{
+	  "category":"Women",
+	  "categoryId":2,
+	  "categoryImage":"assets/images/women.svg",
 		"id": 3,
 		"title": "Angular JS",
 		"image": "assets/images/QuickCollarNeck_wb.jpg",
@@ -32,6 +42,9 @@
 
 	},
 	{
+	  "category":"Women",
+	  "categoryId":2,
+	  "categoryImage":"assets/images/women.svg",
 		"id": 4,
 		"title": "PHP",
 		"image": "assets/images/11947278725_979391b9a2_z.jpg",
@@ -42,6 +55,9 @@
 	  "isAddedtocart":false
 	},
 	{
+	  "category":"Infant",
+	  "categoryId":3,
+	  "categoryImage":"assets/images/infant.svg",
 		"id": 5,
 		"title": "HTML5",
 		"image": "assets/images/2705207852_2758109a1b_z.jpg",
@@ -52,6 +68,9 @@
 	  "isAddedtocart":false
 	},
 	{
+	  "category":"Infant",
+	  "categoryId":3,
+	  "categoryImage":"assets/images/infant.svg",
 		"id": 6,
 		"title": "CSS",
 		"image": "assets/images/12099351973_062cdcd1ee_z.jpg",
