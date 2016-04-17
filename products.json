@@ -9,8 +9,8 @@
 	  "priceNew": 200,
 	  "priceOld": 150,
 	  "size":"One Size",
-	  "isSortlisted":true,
-	  "isAddedtocart":true
+	  "isSortlisted":false,
+	  "isAddedtocart":false
 
 	},
 	{
@@ -79,6 +79,19 @@
 	  "size":"6-12 M",
 	  "isSortlisted":false,
 	  "isAddedtocart":false
-	}
+	},
+  {
+	"category":"Girls",
+	"categoryId":4,
+	"categoryImage":"assets/images/infant.svg",
+	"id": 7,
+	"title": "CSS",
+	"image": "assets/images/12099351973_062cdcd1ee_z.jpg",
+	"priceNew": 1200,
+	"priceOld": 890,
+	"size":"6-12 M",
+	"isSortlisted":false,
+	"isAddedtocart":false
+  }
 
 ]}

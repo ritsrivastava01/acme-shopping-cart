@@ -3,7 +3,7 @@
 //Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
 angular.module('acmeApp')
 
-.controller('mainCntrl',function ($scope, $http, $modal,_shoppingCartData,$state,$rootScope) {
+.controller('mainCntrl',function ($scope, $http, $modal,_shoppingCartData,$state,$rootScope,_productdata) {
 
 
 
@@ -11,8 +11,31 @@ angular.module('acmeApp')
 			$state.transitionTo(COMMON.NAME.HOME);
 			$scope.categories =_shoppingCartData.getGroupLabel();
 			$scope.corpName="ACME Corp";
-			$scope.wishlistcount=5;
-			$scope.cartcount=12;
+
+			$scope.$watch(function () {
+					return _productdata.getArrShortlistItem();
+				},
+
+				function(newVal, oldVal) {
+
+
+					$scope.shortlistcount=_productdata.getArrShortlistItem().length;
+					//$scope.$apply();
+				}, true);
+
+
+			$scope.$watch(function () {
+					return _productdata.getArrAddToCartItem();
+				},
+
+				function(newVal, oldVal) {
+
+
+					$scope.cartcount=_productdata.getArrAddToCartItem().length;
+					//$scope.$apply();
+				}, true);
+
+
 			//$scope.categories;
 		});
 		$scope.autocopletetext="";
@@ -35,31 +58,7 @@ angular.module('acmeApp')
 	$scope.myValue = false;
 		$scope.cart = [];
 
-		// Load products from server
-		/*$http.get('products.json').success(function (response) {
-			$scope.products = response.products;
-		});
-*/
-		$scope.addToCart = function (product) {
-			var found = false;
-			$scope.cart.forEach(function (item) {
-				if (item.id === product.id) {
-					item.quantity++;
-					found = true;
-				}
-			});
-			if (!found) {
-				$scope.cart.push(angular.extend({quantity: 1}, product));
-			}
-		};
 
-		$scope.getCartPrice = function () {
-			var total = 0;
-			$scope.cart.forEach(function (product) {
-				total += product.price * product.quantity;
-			});
-			return total;
-		};
 
 		$scope.checkout = function () {
 			$modal.open({

@@ -5,9 +5,9 @@
 
 //Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
 angular.module('acmeApp')
-    .controller('productGridCntrl',['$scope','$http','_shoppingCartData',function($scope,$http,_shoppingCartData){
+    .controller('productGridCntrl',['$scope','$http','_shoppingCartData','_productdata',function($scope,$http,_shoppingCartData,_productdata){
         $scope.hgt=  window.innerHeight-152;
-       // var data=_shoppingCartData.getGroupedData()[1];
+
         $scope.products=_shoppingCartData.getRawData();
         $scope.filterBy="All";
 
@@ -30,6 +30,39 @@ angular.module('acmeApp')
 
 
         })
+        $scope.updateShortlistArray=function(product,isShortlisted){
+            if(isShortlisted)
+            {
+                $scope.showAlertMessage('alert alert-success',"Wao!","Product added to your shortlist.");
+            }
+          else
+            {
+                $scope.showAlertMessage('alert alert-warning',"OOPS!","Product removed from your shortlist.");
+            }
+
+
+            _productdata.updateShortListItem(product);
+        }
+        $scope.updateAddToCartArray=function(product,isAddTocart){
+            if(isAddTocart)
+            {
+                $scope.showAlertMessage('alert alert-success',"Wao!","Product added to your Cart.");
+            }
+            else
+            {
+                $scope.showAlertMessage('alert alert-warning',"OOPS!","Product removed from your Cart.");
+            }
+
+
+            _productdata.updateArrAddToCartItem(product);
+        }
+        //Show the alert box
+        $scope.showAlertMessage=function(cls,message1,message2){
+            $scope.alertClass=cls;
+            $scope.alertMsg1=message1;
+            $scope.alertMsg2=message2;
+            $("#divAlert").fadeTo(2000, 500).slideUp(500, function(){});
+        }
 
 
     }])

@@ -9,7 +9,7 @@ angular.module('acmeApp')
     /*
         used to load the JSON and save the filtered data
      */
-.service('_shoppingCartData',['$http',function($http){
+.service('_shoppingCartData',['$http','_productdata',function($http,_productdata){
 
         var groupedData={};
         var groupLabel=[];
@@ -19,12 +19,39 @@ angular.module('acmeApp')
             //Get the data from JSON
             $http.get(COMMON.UTIL.getRootWebSitePath() +'/products.json').success(function (response) {
 
+               // localStorage.clear();
+                var previousSaveShortItm,previousSaveCartItm=undefined;
+                if(localStorage.getItem("shortlistItm")!=null)
+                previousSaveShortItm=JSON.parse(localStorage.getItem("shortlistItm"));
+                if(localStorage.getItem("cartItm")!=null)
+                previousSaveCartItm=JSON.parse(localStorage.getItem("cartItm"));
+
                 rawData = response.products;
               // var groupedData = {};
                 //Create the group data based on Type
               $.each(rawData, function(i, item) {
                   //debugger;
                     var categoryId = item.categoryId;
+                    if(previousSaveShortItm!=null){
+                        angular.forEach(previousSaveShortItm,function(val,index){
+                            if(val.id==item.id){
+                                item.isSortlisted=true;
+                                _productdata.updateShortListItem(item);
+                            }
+
+                        })
+                    }
+
+                  if(previousSaveCartItm!=null){
+                      angular.forEach(previousSaveCartItm,function(val,index){
+                          if(val.id==item.id)
+                          {
+                              item.isAddedtocart=true;
+                              _productdata.updateArrAddToCartItem(item);
+                          }
+
+                      })
+                  }
 
                     //delete item.type;
 
@@ -54,4 +81,41 @@ angular.module('acmeApp')
         this.getGroupLabel=function(){return groupLabel};
 
     }])
+
+.service('_productdata',function(){
+        var arrShortlistItem=[];
+        var arrAddToCartItem=[];
+        this.updateShortListItem=function(item)
+        {
+            var indexes = $.map(arrShortlistItem, function(obj, index) {
+                if(obj.id == item.id) {
+                    return index;
+                }
+            });
+            var firstIndex = indexes[0];
+            if(firstIndex==undefined)
+                arrShortlistItem.push(item);
+            else{
+                arrShortlistItem.splice(firstIndex,1);
+            }
+            localStorage.setItem('shortlistItm',JSON.stringify(arrShortlistItem));
+        };
+        this.getArrShortlistItem=function(){return arrShortlistItem};
+        this.updateArrAddToCartItem=function(item)
+        {
+            var indexes = $.map(arrAddToCartItem, function(obj, index) {
+                if(obj.id == item.id) {
+                    return index;
+                }
+            });
+            var firstIndex = indexes[0];
+            if(firstIndex==undefined)
+                arrAddToCartItem.push(item);
+            else{
+                arrAddToCartItem.splice(firstIndex,1);
+            }
+            localStorage.setItem('cartItm',JSON.stringify(arrAddToCartItem));
+        };
+        this.getArrAddToCartItem=function(){return arrAddToCartItem};
+    })
 

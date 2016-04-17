@@ -18,16 +18,16 @@
 
 
 	</style>
-
+	<div></div>
 	<body ng-app="acmeApp" ng-controller="mainCntrl" >
 
 
 
 	<div class="container-fluid" style="height: 100%;">
 
-		<app-header header-Categories="categories" name="corpName" wishlist-Count="wishlistcount" cart-Count="cartcount" onchangeee="refreshProductGrid(newValue)"></app-header>
+		<app-header header-Categories="categories" name="corpName" shortlist-Count="shortlistcount" cart-Count="cartcount" onchangeee="refreshProductGrid(newValue)"></app-header>
 		<div class="container">
-		<div ui-view>a
+		<div ui-view>
 
 
 		</div>
@@ -89,6 +89,7 @@
 		<script src="scripts/vendor/bootstrap.min.js"></script>
 		<script src="scripts/vendor/jquery-ui.js"></script>
 	<script src="scripts/vendor/angular-ui-router.min.js"></script>
+
 		<!-- our code -->
 	<script src="scripts/common.js"></script>
 	<script src="scripts/app.js"></script>

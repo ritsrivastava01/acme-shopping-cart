@@ -16,39 +16,76 @@ body {
     height: 100%;
     background-image: url(../images/bg.png);
     background-repeat: repeat
-/*
-    background: #009DDC !important; /!* For browsers that do not support gradients *!/
-    background: -webkit-linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* For Safari 5.1 to 6.0 *!/
-    background: -o-linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* For Opera 11.1 to 12.0 *!/
-    background: -moz-linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* For Firefox 3.6 to 15 *!/
-    background: linear-gradient(#009DDC, rgba(3, 103, 255, 0.11))!important; /!* Standard syntax *!/
-    background-repeat: repeat-x;*/
 }
 
 .glyphicon-shopping-cart,.glyphicon-heart{
     font-size: 20px;
 }
+.closeBtn{
+    background-image: url(../images/close.svg);
+    height: 20px;
+    width: 20px;
+    display: inline-table;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#parent{
+    width:100%;
+    white-space:nowrap;
+    text-align: right;
+}
+
+#parent div{
+    display:inline-block;
+    text-align:right;
+}
+
+
+
 
 .adc{
+
+    display: table-cell;
+    height: 96%;
+    width: 80%;
+    background-color: rgba(204, 204, 204, 0.47);
+    line-height: 26px;
+    position: absolute;
+
+
+    z-index: 1;
+    vertical-align: middle;
+    text-align: center;
+border-radius: 5px;
+}
+.adc .divInfo{
     background: none repeat scroll 0 0 #fff;
     box-shadow:0px 0px 10px 6px rgba(119, 119, 119, 0.34);
     color: #5f5f5f;
     cursor: default;
-    display: block;
+    display: inline-block;
     font-size: 15px;
     color: #363636;
     font-style: italic;
     font-weight: 700;
     height: 26px;
-    left: 100px;
     line-height: 26px;
-    position: absolute;
-    top: 110px;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50%;
+
     width: 160px;
-    z-index: 1;
+    z-index: 2;
     vertical-align: middle;
     text-align: center;
-border-radius: 5px;
+    border-radius: 5px;
+}
+.adc .divInfo .addedtxt{
+    float: right;
+/* vertical-align: initial; */
+    margin-top: 3px;
+    margin-right: 3px;
 }
 .overlay {
     position: fixed;
@@ -89,6 +126,10 @@ border-radius: 5px;
 .products li:hover {
     z-index:2;
 }
+.alert {
+    padding: 5px;
+     margin-bottom: 10px;
+}
 
 .products li a {
     display:block;
@@ -98,6 +139,7 @@ border-radius: 5px;
     position:absolute;
     background-color:white;
     cursor:pointer;
+    border: 1px solid #ccc;
 
 
 }

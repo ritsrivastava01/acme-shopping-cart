@@ -13,13 +13,13 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-left" style="padding-top: 2px">
                 <li ng-repeat="objHeader in headerCategorie" ><a href="#">{{objHeader.category}}'s Wear</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-heart" ></span>
-                    <div class="cartIcon">{{wishlistCount}}</div>
+                    <div class="cartIcon">{{shortlistCount}}</div>
                 </a></li>
                 <li style="    padding-right: 15px;"><a href="#"><span class="glyphicon glyphicon-shopping-cart" ></span>
                 <div class="cartIcon">{{cartCount}}</div>
