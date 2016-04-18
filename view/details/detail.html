@@ -1,1 +1,25 @@
-Ritesh Srivastava
+<div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+</div>
+<div class="modal-body" style="height: 400px;">
+<div id="p_top_section" class="lft fullWidth fullHight">
+    <div class="p_rgt_section rgt fullHight">
+
+    </div>
+    <div  class="lft fullHight" style="width:80% " >
+        <div class="lft fullHight" style="width:70%;">
+            <img ng-src="{{selectedDetailsProduct.image}}" style="    height: 100%;width: 80%">
+        </div>
+        <div class="rgt fullHight"style="width: 30%;">
+           <p><strong>Overview:</strong></p>
+            {{selectedDetailsProduct.desc}}
+        </div>
+    </div>
+
+</div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

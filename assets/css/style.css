@@ -516,6 +516,12 @@ nav ul:after {
 .txtCenter{
     text-align: center;
 }
+.fullWidth {
+    width: 100%;
+}
+.fullHight{
+    height: 100%;
+}
 .handCursor{
     cursor: pointer;
 }
@@ -638,3 +644,19 @@ nav ul:after {
     line-height: 24px !important;
     width: 24px !important;
 }
+
+/*CSS for Details popup*/
+#p_top_section {
+    overflow: hidden;
+
+    height: 100%;
+}
+.p_rgt_section {
+    width: 20%;
+    border-left: 1px solid #e5e5e5;
+
+}
+.modal-dialog  {width:75%;}
+.modal-body{padding: 0 10px 0 10px}
+
+/******************/

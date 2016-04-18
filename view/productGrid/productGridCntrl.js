@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('acmeApp')
-    .controller('productGridCntrl',['$scope','$http','_shoppingCartData','_productdata','$modal',function($scope,$http,_shoppingCartData,_productdata,$modal){
+    .controller('productGridCntrl',['$scope','$http','_shoppingCartData','_productdata','$uibModal',function($scope,$http,_shoppingCartData,_productdata,$uibModal){
         $scope.hgt=  window.innerHeight-152;
 
         $scope.products=_shoppingCartData.getRawData();
@@ -89,14 +89,15 @@ angular.module('acmeApp')
         };
         $scope.openDetailsWindow=function(product)
         {
-
-
-            var modalInstance = $modal.open({
-                templateUrl: 'view/details/detail.html',
-
-                backdrop: 'static',
-                keyboard: false,
-                resolve: {
+            $scope.selectedDetailsProduct=product;
+            $uibModal.open({
+                templateUrl:COMMON.UTIL.getRootWebSitePath()+COMMON.PATH.DETAIL,
+                controller: 'detailCntrl',
+                windowClass: 'large-Modal',
+                resolve :{
+                    selectedDetailsProduct: function () {
+                        return $scope.selectedDetailsProduct;
+                    }
                 }
             });
         }

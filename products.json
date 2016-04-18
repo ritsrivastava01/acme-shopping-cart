@@ -10,7 +10,8 @@
 	  "priceNew": 150,
 	  "size":"One Size",
 	  "isSortlisted":false,
-	  "isAddedtocart":false
+	  "isAddedtocart":false,
+	   "desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
 
 	},
 	{
@@ -24,7 +25,7 @@
 	  	"priceNew": 350,
 	  	"size":"6-12 M",
 	  	"isSortlisted":false,
-	 	 "isAddedtocart":false
+	 	 "isAddedtocart":false,"desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
 
 	},
 	{
@@ -38,7 +39,8 @@
 	  "priceNew": 550,
 	  "size":"6-12 M",
 	  "isSortlisted":false,
-	  "isAddedtocart":false
+	  "isAddedtocart":false,
+	  "desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
 
 	},
 	{
@@ -52,7 +54,8 @@
 	  "priceNew": 1500,
 	  "size":"6-12 M",
 	  "isSortlisted":false,
-	  "isAddedtocart":false
+	  "isAddedtocart":false,
+	  "desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
 	},
 	{
 	  "category":"Infant",
@@ -65,7 +68,8 @@
 	  "priceNew": 400,
 	  "size":"6-12 M",
 	  "isSortlisted":false,
-	  "isAddedtocart":false
+	  "isAddedtocart":false,
+	  "desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
 	},
 	{
 	  "category":"Infant",
@@ -78,7 +82,8 @@
 	  "priceNew": 890,
 	  "size":"6-12 M",
 	  "isSortlisted":false,
-	  "isAddedtocart":false
+	  "isAddedtocart":false,
+	  "desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
 	},
   {
 	"category":"Girls",
@@ -91,7 +96,8 @@
 	"priceNew": 890,
 	"size":"6-12 M",
 	"isSortlisted":false,
-	"isAddedtocart":false
+	"isAddedtocart":false,
+	"desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
   }
 
 ]}
