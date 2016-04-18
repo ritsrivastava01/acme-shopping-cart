@@ -3,7 +3,7 @@
 <div style="width: 100%">
 
     <div ng-class="alertClass" id="divAlert">
-        <button type="button" class="close" data-dismiss="alert">x</button>
+
         <strong>{{alertMsg1}}</strong>
        {{alertMsg2}}
     </div>
@@ -15,8 +15,8 @@
             <div   class="closeBtn" ng-if="filterBy!='All'"  ng-click="refreshProductList(null)" ></div></div>
         <div > <span>|</span>
             <label>Short By:</label>
-            <a class="alert-link glyphicon glyphicon-sort-by-alphabet" style="cursor: pointer"></a>
-            <a class="alert-link glyphicon glyphicon-sort-by-alphabet-alt" style="cursor: pointer"></a></div>
+            <a class="alert-link glyphicon glyphicon-sort-by-alphabet" style="cursor: pointer" ng-click="sortAlphabet(true)"></a>
+            <a class="alert-link glyphicon glyphicon-sort-by-alphabet-alt" style="cursor: pointer" ng-click="sortAlphabet(false)"></a></div>
 
     </div>
 
@@ -25,5 +25,6 @@
 <div style="overflow-y: auto"  ng-style="{height: hgt+ 'px'}">
 
 
-    <dir-product-item data="products" update-Shortlist-Array="updateShortlistArray(item,isShortlisted)" update-Add-To-Cart-Array="updateAddToCartArray(item,isAddTocart)"></dir-product-item>
+    <dir-product-item data="products" update-Shortlist-Array="updateShortlistArray(item,isShortlisted)"
+                      update-Add-To-Cart-Array="updateAddToCartArray(item,isAddTocart)" open-Details-Window="openDetailsWindow(product)"></dir-product-item>
 </div>

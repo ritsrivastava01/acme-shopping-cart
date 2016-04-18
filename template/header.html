@@ -21,10 +21,16 @@
                 <li><a href="#"><span class="glyphicon glyphicon-heart" ></span>
                     <div class="cartIcon">{{shortlistCount}}</div>
                 </a></li>
-                <li style="    padding-right: 15px;"><a href="#"><span class="glyphicon glyphicon-shopping-cart" ></span>
+                <li class="liCrt" style="padding-right: 15px;"><a href="#"><span class="glyphicon glyphicon-shopping-cart" ></span>
                 <div class="cartIcon">{{cartCount}}</div>
-                </a></li>
+                </a>
 
+                <!---->
+
+                <!---->
+
+
+                </li>
 
 
             </ul>
@@ -37,4 +43,43 @@
             </form>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
+
+
+
+
+    <div class="panel panel-default smallShoppingbox" style="display: none;" id="SmallCart">
+        <div class="panel-heading">
+            <div class="arrow_sc"></div>
+            <h3 class="panel-title" style="display: inline-block"><div class="header_left">
+                <label style="    float: left;margin-right: 5px;">Shopping Cart:</label>
+                <label style="font-size:12px ">({{cartCount}} ITEMS)</label>
+            </div>
+                <div class="header_right">
+                    <label>Rs {{total1AfterDiscount}}</label>
+                    |
+                    <label style="font-size:10px;text-decoration: line-through ">Rs {{totalBeforeDiscount}}</label>
+
+
+                </div></h3>
+
+        </div>
+        <div >
+            <div ng-repeat="objItm in shoppingCart" class="cartItm">
+                <div class="ctf_lft_item lft">
+                    <img ng-src="{{objItm.image}}" style="height: 90%;width: 100%;">
+                </div>
+                <div class="ctf_rgt_item lft"><div class="lft"> {{objItm.title}}</div>
+                    <div class="rgt">Rs {{objItm.priceNew}}</div>
+                </div>
+
+            </div>
+        </div>
+        <button class="buttonApp" style="float: right;width: 100%"  ng-click="placeOrder();"
+        <button >
+            <span>PLACE ORDER</span>
+        </button>
+        </button>
+    </div>
+
+
 </nav>

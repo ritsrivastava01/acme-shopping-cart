@@ -110,7 +110,11 @@ angular.module('acmeApp')
             });
             var firstIndex = indexes[0];
             if(firstIndex==undefined)
+            {
+                item.quantity=1;
                 arrAddToCartItem.push(item);
+            }
+
             else{
                 arrAddToCartItem.splice(firstIndex,1);
             }

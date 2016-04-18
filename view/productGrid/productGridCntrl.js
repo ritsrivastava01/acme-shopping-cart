@@ -3,9 +3,8 @@
  */
 'use strict';
 
-//Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
 angular.module('acmeApp')
-    .controller('productGridCntrl',['$scope','$http','_shoppingCartData','_productdata',function($scope,$http,_shoppingCartData,_productdata){
+    .controller('productGridCntrl',['$scope','$http','_shoppingCartData','_productdata','$modal',function($scope,$http,_shoppingCartData,_productdata,$modal){
         $scope.hgt=  window.innerHeight-152;
 
         $scope.products=_shoppingCartData.getRawData();
@@ -61,9 +60,46 @@ angular.module('acmeApp')
             $scope.alertClass=cls;
             $scope.alertMsg1=message1;
             $scope.alertMsg2=message2;
-            $("#divAlert").fadeTo(2000, 500).slideUp(500, function(){});
+            $("#divAlert").fadeTo(2000, 500).slideUp(300, function(){});
         }
+        
+        $scope.sortAlphabet=function(isAscending){
 
+            if(isAscending)
+            {
+                $scope.products.sort(function(a, b){
+                    var titleA=a.title.toLowerCase(), titleB=b.title.toLowerCase()
+                    if (titleA < titleB) //sort string ascending
+                        return -1
+                    if (titleA > titleB)
+                        return 1
+                    return 0 //default return value (no sorting)
+                })
+            }
+            else{
+                $scope.products.sort(function(a, b){
+                    var titleA=a.title.toLowerCase(), titleB=b.title.toLowerCase()
+                    if (titleA > titleB) //sort string ascending
+                        return -1
+                    if (titleA < titleB)
+                        return 1
+                    return 0 //default return value (no sorting)
+                })
+            }
+        };
+        $scope.openDetailsWindow=function(product)
+        {
+
+
+            var modalInstance = $modal.open({
+                templateUrl: 'view/details/detail.html',
+
+                backdrop: 'static',
+                keyboard: false,
+                resolve: {
+                }
+            });
+        }
 
     }])
 

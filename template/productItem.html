@@ -9,12 +9,21 @@
             <a>
                 <div class="image" ng-style="{'background-image':'url({{product.image}})'}"></div>
 
-                <h1><p>De Berry Flower Hairband -...</p></h1>
+                <h1><p>{{product.title}}</p></h1>
 
                 <h2><p>{{product.size}}</p></h2>
                 <h2><p style="display: inline">Rs {{product.priceNew}}</p> | <p style="display: inline;text-decoration: line-through;">Rs {{product.priceOld}}</p></h2>
                 <div class="informations">
-                <div ng-switch on="product.isSortlisted">
+
+
+
+                        <div class="details"  ng-click="onClickDetailBtn(product)">
+
+                        </div>
+
+
+
+                    <div ng-switch on="product.isSortlisted">
 
 
                     <div class="fresh" ng-switch-when="false" ng-click="updateShortlist(product,true)">

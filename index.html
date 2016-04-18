@@ -25,9 +25,13 @@
 
 	<div class="container-fluid" style="height: 100%;">
 
-		<app-header header-Categories="categories" name="corpName" shortlist-Count="shortlistcount" cart-Count="cartcount" onchangeee="refreshProductGrid(newValue)"></app-header>
-		<div class="container">
-		<div ui-view>
+		<app-header header-Categories="categories" name="corpName" shortlist-Count="shortlistcount" cart-Count="cartcount"
+					onchang-Filter="refreshProductGrid(newValue)" total-Before-Discount ="totalBeforeDiscount"
+					total-After-Discount="totalAfterDiscount" shopping-Cart="shoppingCart" on-Place-Order-Click="onPlaceOrderClick()">
+
+		</app-header>
+		<div class="container" style="height: 83%;">
+		<div ui-view style="height: 100%;">
 
 
 		</div>
@@ -99,6 +103,7 @@
 		<script src="scripts.js"></script>
 	<script src="scripts/states.js"></script>
 	<script src="view/productGrid/productGridCntrl.js"></script>
+	<script src="view/checkout/checkoutCntrl.js"></script>
 	<script>
 		$( document ).click(function() {
 		/*var left=  $('#toggle').css('left') === '0px' ? '-270px' : '0px';

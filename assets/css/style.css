@@ -212,6 +212,24 @@ border-radius: 5px;
     float: left;
 
 }
+
+.details{
+    background-image: url(../images/premium-sprite.png);
+    margin-left: 6px;
+    /* margin-top: 13px; */
+    text-align: center;
+    margin-left: 8px;
+    background-position: -235px 4px;
+    display: block;
+    width: 32px;
+    height: 38px;
+    border: 1px solid #ccc;
+    float: left;
+
+}
+.details:hover{
+    background-position: -263px 4px
+}
 .fresh:hover{
     background-position: -344px 4px;
 
@@ -264,10 +282,13 @@ border-radius: 5px;
     width: 120px;
     cursor: pointer;
     color: #aaa;
-    background: none;
+    background-color: rgba(13, 166, 224, 0.05);
     display: block;
 
 }
+
+
+
 button:hover{
     background-color: #0da6e0;;
     border:none;
@@ -387,4 +408,233 @@ nav ul li a {
 }
 nav ul:after {
     content: ""; clear: both; display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.notApplicable {
+    text-decoration:line-through
+}
+.availability {
+    color: #42A021;
+    font-size: 16px;
+}
+.smallShoppingbox {
+    margin-top: -14px;
+
+    display: none;
+    position: absolute;
+    right: 15px;
+    width: 25%;
+    z-index: 8;
+
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.47);
+}
+.smallShoppingbox_bg {
+    background-color: #fff;
+    float: left;
+    max-height: 300px;
+    width: 100%;
+}
+.smallShoppingbox .arrow_sc {
+    border-style: solid;
+    border-width: 0 6.55px 7px 7px;
+    border-color: transparent transparent #F5F5F5;
+    height: 0;
+    line-height: 0;
+    margin-top: -17px;
+    position: absolute;
+    right: 38px;
+    width: 0;
+}
+.smallShoppingbox_bg .sShoppingCrt_header   {
+    background-color: #f1f1f1;
+    float: none;
+    height: 36px;
+    overflow: hidden;
+    width: 99.5%;
+    margin: 1px;
+}
+.smallShoppingbox_bg .header_left {
+    font-size: 14px;
+    margin-left: 14px;
+    float: left;
+}
+
+.smallShoppingbox_bg .header_right {
+    float: right;
+    font-size: 14px;
+    margin-right: 12px;
+}
+.smallShoppingbox_bg .ct_filled_cart {
+    border-bottom: 1px solid #eee;
+    height: auto;
+    width: 100%;
+}
+
+ .cartItm
+{
+    height: 75px;
+    background-color: rgba(245, 245, 245, 0.37);
+    border-bottom: 1px solid #f5f5f5;
+}
+.ctf_lft_item {
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    width: 25%;
+    margin-right: 10px;
+    margin-left: 15px;
+}
+.ctf_rgt_item {
+    line-height: 14px;
+    margin: 10px 0;
+    text-align: left;
+    width: 65%;
+}
+.lft {
+    float: left;
+}
+.rgt {
+    float: right;
+}
+.txtCenter{
+    text-align: center;
+}
+.handCursor{
+    cursor: pointer;
+}
+.ct_box .ctf_lfth {
+    font-size: 14px;
+    margin-left: 14px;
+}
+
+.accordion {
+    margin-bottom: 20px;
+}
+
+.accordion-group {
+    margin-bottom: 2px;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.accordion-heading {
+    border-bottom: 0;
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    height: 40px;
+    line-height: 34px;
+    padding: 0 15px
+}
+.collapse.in {
+    height: auto;
+}
+.accordion-inner {
+    padding: 9px 15px;
+    border-top: 1px solid #e5e5e5;
+}
+.accordion-heading .accordion-toggle {
+
+    color: #000000;
+
+}
+.accordion-heading:hover {
+    cursor: pointer;
+ background-color: rgba(153, 153, 153, 0.81);
+    color: #FFF;
+}
+.accordion-heading .accordion-toggle:hover {
+    font-weight: bold;
+}
+.input-group{
+    margin-bottom: 10px;
+    width: 100%;
+}
+.input-group span{
+    width:15%;;
+}
+
+.topHeader
+{
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+
+    float: left;
+    width: 100%;
+
+}
+.tpc {
+    border-bottom: 1px solid #e5e5e5;
+}
+.tpc .tp1 {
+    width: 44%;
+}
+.tpc .tp2 {
+    width: 17%;
+}
+.tpc .tp3 {
+    width: 9%;
+}
+.tpc .tp4 {
+    width: 15%;
+}
+
+.tp {
+    background: none repeat scroll 0 0 #f5f5f5;
+    border-right: 1px solid #e5e5e5;
+    color: #5d5d5d;
+
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: center;
+}
+
+.tblCart {
+    border-collapse: collapse;
+    width: 100%
+}
+.tblCart td, .tblCart th {
+    border: 1px solid #e5e5e5;
+}
+
+.promrp {
+    padding-left: 30%;
+}
+.promrp p {
+    background-color: #dedede;
+    float: left;
+    font-size: 14px;
+    height: 21px;
+    line-height: 21px;
+    margin-left: 0;
+    text-align: center;
+    width: 20px;
+}
+.proqty {
+    background-color: #ffffff !important;
+    border: 1px solid #dedede;
+    font-size: 16px !important;
+    height: 21px !important;
+    line-height: 24px !important;
+    width: 24px !important;
 }

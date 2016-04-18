@@ -13,10 +13,12 @@ COMMON.UTIL = {
 
 }
 COMMON.NAME={
-    HOME:'home'
+    HOME:'home',
+    CHECKOUT:'checkout'
 }
 COMMON.PATH={
-   HOME:'/view/productGrid/productGrid.html'
+    HOME:'/view/productGrid/productGrid.html',
+    CHECKOUT:'/view/checkout/checkout.html'
 }
 /*get the root path */
 function getRootWebSitePath() {

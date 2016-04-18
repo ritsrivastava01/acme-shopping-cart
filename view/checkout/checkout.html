@@ -1,0 +1,164 @@
+<!--<div style="height: 100%;background-color: #FFF">
+	<div class="input-group">
+		<span class="input-group-addon" id="sizing-addon2">Q</span>
+		<input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+	</div>
+</div>-->
+
+
+
+<div >
+<div class="accordion" id="accordion2">
+	<div class="accordion-group">
+		<div class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+			<strong>DELIVERY</strong>
+			<!--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+
+			</a>-->
+			<span class="rgt" >  STEP 1: DELIVERY Tell us your shipment delivery address.</span>
+		</div>
+		<div id="collapseOne" class="accordion-body collapse in">
+			<div class="accordion-inner">
+
+
+					<div class="input-group">
+						<span class="input-group-addon">Name:</span>
+						<input type="text" class="form-control" placeholder="Your  Name" aria-describedby="sizing-addon2">
+					</div>
+
+
+					<div class="input-group">
+						<span class="input-group-addon">Address 1:</span>
+						<input type="text" class="form-control" placeholder="Your Address" aria-describedby="sizing-addon2">
+					</div>
+
+				<div class="input-group">
+					<span class="input-group-addon">Area:</span>
+					<input type="text" class="form-control" placeholder="Your Area" aria-describedby="sizing-addon2">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">City:</span>
+					<input type="text" class="form-control" placeholder="Your City" aria-describedby="sizing-addon2">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">State:</span>
+					<input type="text" class="form-control" placeholder="Your State" aria-describedby="sizing-addon2">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Country:</span>
+					<input type="text" class="form-control" placeholder="Your Country" aria-describedby="sizing-addon2">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Pin Code:</span>
+					<input type="text" class="form-control" placeholder="Your Area Pin Code" aria-describedby="sizing-addon2">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="accordion-group">
+		<div class="accordion-heading" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+			<strong>ORDER SUMMARY</strong>
+
+			<span class="rgt" >  STEP 2: Let's Review Your Order.</span>
+		</div>
+		<div id="collapseTwo" class="accordion-body collapse">
+			<div class="accordion-inner"style="padding: 0px">
+
+
+				<table class="tblCart">
+					<tr class="tpc">
+						<td class="tp tp1">Product</td>
+						<td class="tp tp2">Shipping & Availability</td>
+						<td class="tp tp3">Price</td>
+						<td class="tp tp4">Quantity</td>
+						<td class="tp tp4">Total</td>
+
+
+					</tr>
+					<tr ng-repeat="objItm in shoppingCart ">
+						<td >
+							<div class="ctf_lft_item lft">
+							<img ng-src="{{objItm.image}}" style="height: 90%;width: 100%;">
+						</div>
+							<div class="ctf_rgt_item lft">{{objItm.title}}
+
+							</div>
+						</td>
+						<td class="txtCenter availability">In Stock</td>
+						<td ><div class="txtCenter">Rs {{objItm.priceNew}}</div>
+							<div class="txtCenter notApplicable" >Rs {{objItm.priceOld}}</div></td>
+						<td class="txtCenter"><div class="promrp">
+							<p id="gadel_814890" style="cursor: pointer;" ng-click=" updateCartItem(objItm,-1)">-</p>
+							<p class="proqty">{{objItm.quantity}}</p>
+							<p id="gaadd_814890" style="cursor: pointer;"  ng-click=" updateCartItem(objItm,1)">+</p>
+
+						</div></td>
+						<td style="padding: 0px 10px 0px 10px"><div class="lft" style="font-weight: bold">{{objItm.quantity*objItm.priceNew}}</div>
+							<div class="rgt handCursor"><img style="height: 20px" src="assets/images/delete.svg" ng-click="removeFromCart(objItm)"/></div></td>
+
+
+					</tr>
+					<tr class="tp">
+						<td colspan="4" >Total</td>
+
+						<td >{{totalAmount}}</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+	</div>
+	<div class="accordion-group">
+		<div class="accordion-heading"  data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+			<strong>PAYMENT</strong>
+
+			<span class="rgt" >STEP 3: Last Step and you are done.How would you like to pay?</span>
+		</div>
+		<div id="collapseThree" class="accordion-body collapse">
+			<div class="accordion-inner">
+
+				<div class="input-group">
+					<span class="input-group-addon">Card Number :</span>
+					<input type="text" class="form-control"  placeholder="Card Number" aria-describedby="sizing-addon2">
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Name :</span>
+					<input type="text" class="form-control"  placeholder="Cardholder's Name" aria-describedby="sizing-addon2">
+				</div>
+
+
+				<div class="input-group">
+					<span class="input-group-addon">Expiry:</span>
+					<input type="text" class="form-control" placeholder="Expiry" aria-describedby="sizing-addon2">
+				</div>
+
+
+				<div class="input-group">
+					<span class="input-group-addon">CVC:</span>
+					<input type="text" class="form-control" placeholder="CVC" aria-describedby="sizing-addon2">
+				</div>
+
+
+				<div class="input-group">
+					<strong>
+						Amount to pay:Rs {{totalAmount}}
+					</strong>
+
+				<div class="rgt" style="width: 20%">
+					<button class="buttonApp" style="float: right;width: 100%"  ng-click="placeOrder();"
+					<button >
+						<span>PAY NOW</span>
+					</button>
+					</button>
+				</div>
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+
