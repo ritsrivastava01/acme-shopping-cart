@@ -1,3 +1,4 @@
+
 {"products": [
   {
 	"category":"Infant",
@@ -257,6 +258,7 @@
 	"priceOld": 200,
 	"priceNew": 150,
 	"size":"One Size",
+	"quantity":1,
 	"isSortlisted":false,
 	"isAddedtocart":false,
 	"desc":"Get a stylish and smart look wearing this casual shirt for men from Max. Made from cotton, this chequered shirt has regular fit. You can team this shirt with jeans or trousers to look smart."

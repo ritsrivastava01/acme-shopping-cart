@@ -18,7 +18,7 @@ COMMON.NAME={
     DETAIL:"detail"
 }
 COMMON.PATH={
-    HOME:'/view/productGrid/productGrid.html',
+    HOME:'/view/home/home.html',
     CHECKOUT:'/view/checkout/checkout.html',
     DETAIL:'/view/details/detail.html'
 }

@@ -1,165 +1,110 @@
 'use strict';
 
-//Stripe.setPublishableKey('pk_test_aj305u5jk2uN1hrDQWdH0eyl');
 angular.module('acmeApp')
+/*
+* mainCntrl = Used to provide the data to header
+* --Used to handle the callbacks and broadcast the events
+* --Used to initialize the data for application
+*/
+.controller('mainCntrl',['$scope', '$http', '$uibModal','_shoppingCartData','$state','$rootScope','_productdata',
+			function ($scope, $http, $uibModal,_shoppingCartData,$state,$rootScope,_productdata) {
 
-.controller('mainCntrl',function ($scope, $http, $uibModal,_shoppingCartData,$state,$rootScope,_productdata) {
-		/*$scope.selectedDetailsProduct={
-			"category":"Women",
-			"categoryId":2,
-			"categoryImage":"assets/images/women.svg",
-			"id": 4,
-			"title": "PHP",
-			"image": "assets/images/11947278725_979391b9a2_z.jpg",
-			"priceOld": 2100,
-			"priceNew": 1500,
-			"size":"6-12 M",
-			"isSortlisted":false,
-			"isAddedtocart":false,
-			"quantity":1,
-			"desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
-		};*/
-		/*$uibModal.open({
-			templateUrl:COMMON.UTIL.getRootWebSitePath()+COMMON.PATH.DETAIL,
-			controller: 'detailCntrl',
-			windowClass: 'large-Modal',
-			resolve :{
-				selectedDetailsProduct: function () {
-					return $scope.selectedDetailsProduct;
-				}
-			}
-		});*/
+				//Function is used to load the data
+				//Add callback function for making synchronous call
+				_shoppingCartData.loadShoppingData(function () {
 
+					//Redirect to home page
+					$state.transitionTo(COMMON.NAME.HOME).then(function () {
+						//create the slider after load the 'HOME' page
+						$scope.$broadcast('createSlider');
+					});
+					//Create the Data source for header
+					$scope.headerCategories = _shoppingCartData.getGroupLabel();//Header label data
+					$scope.dataForAutoComplete = _shoppingCartData.getRawData();//Auto-complete control data
+					$scope.corpName = "ACME Corp";//Company Name
+					$scope.autocopletetext = "";//auto-complete text
 
-		_shoppingCartData.loadShoppingData(function(){
-			//create the slider after load the 'HOME' page
-			$state.transitionTo(COMMON.NAME.HOME).then(function(){
-				$scope.$broadcast('createSlider');
-			});
-			$scope.headerCategories =_shoppingCartData.getGroupLabel();
-			$scope.dataForAutoComplete =_shoppingCartData.getRawData();
-			$scope.corpName="ACME Corp";
+					//watch function used to update the shortlist count
+					$scope.$watch(
+						// This function returns the value being watched.
+						function () {return _productdata.getArrShortlistItem();},
 
-			$scope.$watch(function () {
-					return _productdata.getArrShortlistItem();
-				},
-
-				function(newVal, oldVal) {
+						// This is the change listener, called when the value returned from the above function changes
+						function (newVal, oldVal) {
 
 
-					$scope.shortlistcount=_productdata.getArrShortlistItem().length;
-					//$scope.$apply();
-				}, true);
+							$scope.shortlistcount = _productdata.getArrShortlistItem().length;
 
+						}, true);
 
-			$scope.$watch(function () {
-					return _productdata.getArrAddToCartItem();
-				},
+					//watch function used to update the cart list items count
+					$scope.$watch(
 
-				function(newVal, oldVal) {
+						// This function returns the value being watched.
+						function () {return _productdata.getArrAddToCartItem();},
 
+						// This is the change listener, called when the value returned from the above function changes
+						function (newVal, oldVal) {
 
-					$scope.totalBeforeDiscount=0;
-					$scope.totalAfterDiscount=0;
-					var cartData=_productdata.getArrAddToCartItem();
-					$scope.shoppingCart=cartData;
-					angular.forEach(cartData,function(val,index) {
-						$scope.totalBeforeDiscount += val.priceOld;
-						$scope.totalAfterDiscount+= val.priceNew;
-					})
-					$scope.cartcount=cartData.length;
-					//$scope.$apply();
-				}, true);
+							//Calculate the total cost
+							//used to show in cart preview popup
+							$scope.totalBeforeDiscount = 0;//Total cost before discount
+							$scope.totalAfterDiscount = 0;//Total cost after discount
+							var cartData = _productdata.getArrAddToCartItem();
+							$scope.shoppingCart = cartData;
+							//update the cost in cart
+							angular.forEach(cartData, function (val, index) {
+								$scope.totalBeforeDiscount += val.priceOld;
+								$scope.totalAfterDiscount += val.priceNew;
+							})
+							$scope.cartcount = cartData.length;
 
+						}, true);
 
-			//$scope.categories;
-		});
-
-		$scope.onPlaceOrderClick=function(){
-			$state.transitionTo(COMMON.NAME.CHECKOUT);
-			/*$modal.open({
-				templateUrl: 'view/checkout/checkout.html',
-				controller: 'CheckoutCtrl',
-
-			});*/
-		}
-
-		$scope.autocopletetext="";
-		$scope.$on('clrAotuomplet',function()
-		{
-
-			$scope.selectedCategory=null;
-			$rootScope.$broadcast('clrText',{});
-
-		})
-
-		$scope.selectedCategory=null;
-		$scope.refreshProductGrid =function(newValueId,isTypeId){
-			//debugger;
-			if($state.$current.self.name=="") {
-
-
-				if (newValueId != null)
-					$scope.$broadcast('refreshGrid', [newValueId, isTypeId]);
-				else
-					$scope.$broadcast('refreshGrid', [null, null]);
-			}
-			else if(($state.$current.self.name=="home"))
-			{
-				$state.transitionTo(COMMON.NAME.HOME).then(function(){
-					$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
-					//$scope.$broadcast('createSlider');
 				});
 
-			}
-			else{
-				$state.transitionTo(COMMON.NAME.HOME).then(function(){
-					$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
-					$scope.$broadcast('createSlider');
-				});
-			}
-		};
-		$scope.fliterShortlistedData=function(){
+				//Event listner for clear the auto-complete the text box
 
-			$scope.$broadcast('fliterShortlistedData');
-		}
+				$scope.$on('clrAotuomplet', function () {
 
+					$scope.selectedCategory = null;
+					$rootScope.$broadcast('clrText', {});
 
-	$scope.myValue = false;
-		$scope.cart = [];
+				})
+
+				$scope.selectedCategory = null;
+				$scope.refreshProductGrid = function (newValueId, isTypeId) {
+					//debugger;
+					if ($state.$current.self.name == "") {
 
 
+						if (newValueId != null)
+							$scope.$broadcast('refreshGrid', [newValueId, isTypeId]);
+						else
+							$scope.$broadcast('refreshGrid', [null, null]);
+					}
+					else if (($state.$current.self.name == "home")) {
+						$state.transitionTo(COMMON.NAME.HOME).then(function () {
+							$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
+							//$scope.$broadcast('createSlider');
+						});
 
-		/*$scope.checkout = function () {
-			$modal.open({
-				templateUrl: 'view/checkout/checkout.html',
-				controller: 'CheckoutCtrl',
-				resolve: {
-					totalAmount: $scope.getCartPrice
+					}
+					else {
+						$state.transitionTo(COMMON.NAME.HOME).then(function () {
+							$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
+							$scope.$broadcast('createSlider');
+						});
+					}
+				};
+				$scope.fliterShortlistedData = function () {
+
+					$scope.$broadcast('fliterShortlistedData');
 				}
-			});
-		};*/
-	})
 
-/*.controller('CheckoutCtrl', function ($scope) {
-		//$scope.totalAmount = totalAmount;
 
-		$scope.onSubmit = function () {
-			$scope.processing = true;
-		};
+				$scope.myValue = false;
+				$scope.cart = [];
 
-		$scope.stripeCallback = function (code, result) {
-			$scope.processing = false;
-			$scope.hideAlerts();
-			if (result.error) {
-				$scope.stripeError = result.error.message;
-			} else {
-				$scope.stripeToken = result.id;
-			}
-		};
-
-		$scope.hideAlerts = function () {
-			$scope.stripeError = null;
-			$scope.stripeToken = null;
-		};
-	});*/
+	}
+	])
