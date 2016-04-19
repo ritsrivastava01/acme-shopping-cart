@@ -1,5 +1,9 @@
 
 /***************CSS common CSS************/
+.container-fluid{
+    padding-right:0px;
+    padding-left: 0px;
+}
 .lft {
     float: left;
 }
@@ -366,10 +370,7 @@ button:hover{
     font-family: Arial;
     font-size: 13px;
 }
-.container-fluid{
-    padding-right:0px;
-    padding-left: 0px;
-}*/
+*/
 
 /*.toggler {
     -webkit-border-top-right-radius: 4px;
@@ -466,7 +467,7 @@ nav ul:after {
     line-height: 0;
     margin-top: -17px;
     position: absolute;
-    right: 38px;
+    right:38px;
     width: 0;
 }
 .smallShoppingbox_bg .sShoppingCrt_header   {
