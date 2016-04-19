@@ -1,9 +1,22 @@
-@font-face {
-    font-family: 'newFont';
-    src: url('../fonts/Armata-Regular-webfont.eot');
-    src: url('../fonts/Armata-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/Armata-Regular-webfont.woff') format('woff'),
-    url('../fonts/Armata-Regular-webfont.ttf') format('truetype')
+
+/***************CSS common CSS************/
+.lft {
+    float: left;
+}
+.rgt {
+    float: right;
+}
+.txtCenter{
+    text-align: center;
+}
+.fullWidth {
+    width: 100%;
+}
+.fullHight{
+    height: 100%;
+}
+.handCursor{
+    cursor: pointer;
 }
 
 html{
@@ -17,6 +30,7 @@ body {
     background-image: url(../images/bg.png);
     background-repeat: repeat
 }
+/*******************************/
 
 .glyphicon-shopping-cart,.glyphicon-heart{
     font-size: 20px;
@@ -95,7 +109,7 @@ border-radius: 5px;
     margin-top: 3px;
     margin-right: 3px;
 }
-.overlay {
+/*.overlay {
     position: fixed;
     top: 0px;
     bottom: 0px;
@@ -108,7 +122,8 @@ border-radius: 5px;
     filter: alpha(opacity=50);
     opacity: .1;
     z-index: 1000;
-}
+}*/
+/***********CSS: for Product item***********/
 
 .products {
     display:block;
@@ -209,7 +224,6 @@ border-radius: 5px;
 .fresh{
     background-image: url(../images/premium-sprite.png);
     margin-left: 6px;
-    /* margin-top: 13px; */
     text-align: center;
     margin-left: 8px;
     background-position: -290px 4px;
@@ -274,14 +288,7 @@ border-radius: 5px;
 .products li a:hover .informations {
     display:block;
 }
-
-/*.products li a:hover a .informations {
-    display:block;
-}*/
-
-
-
-
+/*************************************************/
 
 
 .buttonApp{
@@ -321,6 +328,8 @@ button:hover{
     padding:0 10px;
     left: -100%
 }
+
+/**********************CSS for Shopping cart*******/
 .btstrp {
     position: fixed;
     bottom: 0;
@@ -329,6 +338,7 @@ button:hover{
     left: 0;
     z-index: 4!important;
 }
+/*
  .ctr {
     background: url(../images/img5.png);
      background-repeat: no-repeat;
@@ -336,7 +346,7 @@ button:hover{
     width: 100%;
      margin-bottom: 20px;
 
-    /* box-shadow: 0px 0px 15px 8px rgba(204, 204, 204, 0.67)*/
+
 }
 .ctr .btin_srtp {
     font-size: 12px;
@@ -359,9 +369,9 @@ button:hover{
 .container-fluid{
     padding-right:0px;
     padding-left: 0px;
-}
+}*/
 
-.toggler {
+/*.toggler {
     -webkit-border-top-right-radius: 4px;
     -webkit-border-bottom-right-radius: 4px;
     -moz-border-radius-topright: 4px;
@@ -381,7 +391,8 @@ button:hover{
     position: absolute;
     top: 60px;
 
-}
+}*/
+/*****************CSS: for Header**************/
 .navbar-inverse .navbar-nav > li > a {
 
     font-weight: bolder;
@@ -421,23 +432,7 @@ nav ul:after {
     content: ""; clear: both; display: block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*********************************************/
 .notApplicable {
     text-decoration:line-through
 }
@@ -445,6 +440,7 @@ nav ul:after {
     color: #42A021;
     font-size: 16px;
 }
+/***********CSS for cart preview*************/
 .smallShoppingbox {
     margin-top: -14px;
 
@@ -497,11 +493,12 @@ nav ul:after {
     height: auto;
     width: 100%;
 }
+/***************************************/
 
  .cartItm
 {
     height: 75px;
-   
+
     border-bottom: 1px solid #f5f5f5;
 }
 .ctf_lft_item {
@@ -518,24 +515,7 @@ nav ul:after {
     text-align: left;
     width: 65%;
 }
-.lft {
-    float: left;
-}
-.rgt {
-    float: right;
-}
-.txtCenter{
-    text-align: center;
-}
-.fullWidth {
-    width: 100%;
-}
-.fullHight{
-    height: 100%;
-}
-.handCursor{
-    cursor: pointer;
-}
+
 .borderTop{
     border-top: 1px solid  #e5e5e5;
 }
@@ -547,7 +527,7 @@ nav ul:after {
     font-size: 14px;
     margin-left: 14px;
 }
-
+/******************* CSS for Accordion*************/
 .accordion {
     margin-bottom: 20px;
 }
@@ -589,6 +569,7 @@ nav ul:after {
 .accordion-heading .accordion-toggle:hover {
     font-weight: bold;
 }
+/**************************************************/
 .input-group{
     margin-bottom: 10px;
     width: 100%;
@@ -606,6 +587,7 @@ nav ul:after {
     width: 100%;
 
 }
+/**********************CSS for checkout************/
 .tpc {
     border-bottom: 1px solid #e5e5e5;
 }

@@ -1,3 +1,5 @@
+<!--Header File: used as template URL in directive 'appHeader'
+Used to create the application header-->
 <nav class="avbar navbar-default navbar-inverse" >
     <div class="container-fluid" style="margin-bottom: 1%;">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,31 +26,23 @@
                 <li class="liCrt handCursor" style="padding-right: 15px;"><a><span class="glyphicon glyphicon-shopping-cart" ></span>
                 <div class="cartIcon">{{cartCount}}</div>
                 </a>
-
-                <!---->
-
-                <!---->
-
-
                 </li>
-
-
             </ul>
 
 
             <form class="navbar-form navbar-right" role="search">
 
-
+            <!--Auto-complete control-->
               <angucomplete id="ex1" placeholder="Search for..."  pause="100" autocopletetext="autocopletetext" description-field="title"
                               selectedobject="selectedCategory" localdata="autoCompleteData" searchfields="title" titlefield="title"
                               minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
             </form>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 
 
 
-
+<!--Panel: Shopping cart preview-->
     <div class="panel panel-default smallShoppingbox" style="display: none;" id="SmallCart">
         <div class="panel-heading">
             <div class="arrow_sc"></div>
@@ -73,7 +67,7 @@
                 <div class="ctf_rgt_item lft"  ><div class="lft" style="width:75% "> {{objItm.title}}
                    <p>Qty: {{objItm.quantity}}</p>
                 </div>
-                    <diyv class="rgt">Rs {{objItm.priceNew}}</diyv>
+                    <div class="rgt">Rs {{objItm.priceNew}}</div>
                 </div>
 
             </div>
