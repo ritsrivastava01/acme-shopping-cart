@@ -1,22 +1,36 @@
 /**
- * Created by Ritesh on 4/16/2016.
+ * This controller is used to following functions:
+ * 1. Provide the filer with following options:
+ *      1.1 Filter By Price range
+ *      1.2 Ascending Sorting order
+ *      1.3 Descending sorting order
+ *      1.4 remove the applied filter and load all data
+ * 2. Show the no records.
+ * 3. Load the Product list
  */
 'use strict';
 
 angular.module('acmeApp')
-    .controller('productGridCntrl',['$scope','$http','_shoppingCartData','_productdata','$uibModal',function($scope,$http,_shoppingCartData,_productdata,$uibModal){
+    .controller('productGridCntrl',['$scope','$http','_shoppingCartData','_productdata','$uibModal',
+                function($scope,$http,_shoppingCartData,_productdata,$uibModal){
+
 
         $scope.category="";
+        //Product Grid Height
         $scope.hgt=  window.innerHeight-152;
-
+        //Product data
         $scope.products=_shoppingCartData.getRawData();
+        //default filter option
         $scope.filterBy="All";
 
-
-
-
+         /*FUNCTION : refresh the Product list data
+          arrData:array:
+                1. selected object
+                2.TypeID
+                    if  null ->indicates load only single item
+                    else ->indicates load all data based on category ID (type  Id)
+           */
         $scope.refreshProductList=function(arrData){
-
 
             var selectedObjId=arrData[0];
             var isTypeId=arrData[1];
@@ -52,12 +66,9 @@ angular.module('acmeApp')
                 $scope.$emit('clrAotuomplet');
             }
         };
-        $scope.$on('refreshGrid',function(event,selectedObj){
-
-            $scope.refreshProductList(selectedObj);
 
 
-        });
+        //FUNCTION : get the min/max  values for slider
         $scope.getMaxMinValueForSlider=function(){
 
              var sortArray=$scope.products.sort(function (a, b) {
@@ -77,13 +88,14 @@ angular.module('acmeApp')
             $scope.maxValue=sortArray[sortArray.length-1].priceNew;
 
         }
+        //Function: Redraw slider
         $scope.redrawSlider=function(){
 
             $scope.slider.destroy()
             $scope.createSlider();
 
         }
-
+        //FUNCTION: create the slider
         $scope.createSlider=function(){
 
             $scope.getMaxMinValueForSlider();
@@ -110,23 +122,37 @@ angular.module('acmeApp')
                         })
                     }
 
-                    // debugger;
                     $scope.products=sortData;
                     $scope.$digest($scope.products);
                 });
         };
+
+        //EVENT LISTENER : to refresh the grid data
+        //listen from header
+        $scope.$on('refreshGrid',function(event,selectedObj){
+            $scope.refreshProductList(selectedObj);
+
+        });
+
+        //EVENT LISTENER : used to  create the slider
+        //listen from parent class(productGrid)
         $scope.$on('createSlider',function(){
             $scope.createSlider();
 
-        })
-        $scope.$on('fliterShortlistedData',function(){
+        });
 
+        //Event listener :Show the shortlisted items
+        //listen from parent class(productGrid)
+        $scope.$on('fliterShortlistedData',function(){
             $scope.filterBy="Shortlist";
             $scope.products =_productdata.getArrShortlistItem();
-
+            //dispatch the event to clear the auto-complete text box
             $scope.$emit('clrAotuomplet');
         });
+
+        //Function : used to update the shortlisted data and show the alert box
         $scope.updateShortlistArray=function(product,isShortlisted){
+            _productdata.updateShortListItem(product);
             if(isShortlisted)
             {
                 $scope.showAlertMessage('alert alert-success',"Wao!","Product added to your shortlist.");
@@ -136,10 +162,11 @@ angular.module('acmeApp')
                 $scope.showAlertMessage('alert alert-warning',"OOPS!","Product removed from your shortlist.");
             }
 
-
-            _productdata.updateShortListItem(product);
         }
+
+        //FUNCTION : used to update the add To Cart array  and show the alert box
         $scope.updateAddToCartArray=function(product,isAddTocart){
+            _productdata.updateArrAddToCartItem(product);
             if(isAddTocart)
             {
                 $scope.showAlertMessage('alert alert-success',"Wao!","Product added to your Cart.");
@@ -150,16 +177,17 @@ angular.module('acmeApp')
             }
 
 
-            _productdata.updateArrAddToCartItem(product);
+
         }
-        //Show the alert box
+        //FUNCTION: Show the alert box
         $scope.showAlertMessage=function(cls,message1,message2){
             $scope.alertClass=cls;
             $scope.alertMsg1=message1;
             $scope.alertMsg2=message2;
             $("#divAlert").fadeTo(2000, 500).slideUp(300, function(){});
         }
-        
+
+        //FUNCTION: used to sort the data on their title
         $scope.sortAlphabet=function(isAscending){
 
             if(isAscending)
@@ -184,6 +212,8 @@ angular.module('acmeApp')
                 })
             }
         };
+
+        //FUNCTION: used to open the detail popup Window
         $scope.openDetailsWindow=function(product)
         {
             $scope.selectedDetailsProduct=product;
@@ -202,7 +232,6 @@ angular.module('acmeApp')
                _productdata.updateAddtoCartCount(obj);
             });
         }
-       // $("#slider").slider({});
 
     }])
 

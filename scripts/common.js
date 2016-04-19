@@ -13,12 +13,12 @@ COMMON.UTIL = {
 
 }
 COMMON.NAME={
-    HOME:'home',
+    PRODUCT_GRID:'productGrid',
     CHECKOUT:'checkout',
     DETAIL:"detail"
 }
 COMMON.PATH={
-    HOME:'/view/home/home.html',
+    PRODUCT_GRID:'/view/productGrid/productGrid.html',
     CHECKOUT:'/view/checkout/checkout.html',
     DETAIL:'/view/details/detail.html'
 }

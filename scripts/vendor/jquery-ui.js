@@ -80,7 +80,7 @@ $.fn.extend({
 		if ( this.length ) {
 			var elem = $( this[ 0 ] ), position, value;
 			while ( elem.length && elem[ 0 ] !== document ) {
-				// Ignore z-home if position is set to a value where z-home is ignored by the browser
+				// Ignore z-productGrid if position is set to a value where z-productGrid is ignored by the browser
 				// This makes behavior of this function consistent across browsers
 				// WebKit always returns auto if the element is positioned
 				position = elem.css( "position" );
@@ -88,7 +88,7 @@ $.fn.extend({
 					// IE returns 0 when zIndex is not specified
 					// other browsers return a string
 					// we ignore the case of nested elements with an explicit value of 0
-					// <div style="z-home: -10;"><div style="z-home: 0;"></div></div>
+					// <div style="z-productGrid: -10;"><div style="z-productGrid: 0;"></div></div>
 					value = parseInt( elem.css( "zIndex" ), 10 );
 					if ( !isNaN( value ) && value !== 0 ) {
 						return value;
@@ -5770,7 +5770,7 @@ $.extend( $.effects, {
 		} else {
 			$.extend( props, {
 				position: element.css( "position" ),
-				zIndex: element.css( "z-home" )
+				zIndex: element.css( "z-productGrid" )
 			});
 			$.each([ "top", "left", "bottom", "right" ], function(i, pos) {
 				props[ pos ] = element.css( pos );
@@ -6132,7 +6132,7 @@ $.widget( "ui.accordion", {
 	_destroy: function() {
 		var contents;
 
-		// clean up home element
+		// clean up productGrid element
 		this.element
 			.removeClass( "ui-accordion ui-widget ui-helper-reset" )
 			.removeAttr( "role" );
@@ -6274,7 +6274,7 @@ $.widget( "ui.accordion", {
 			}
 		// was active, active panel still exists
 		} else {
-			// make sure active home is correct
+			// make sure active productGrid is correct
 			options.active = this.headers.index( this.active );
 		}
 
@@ -7629,7 +7629,7 @@ function Datepicker() {
 	this._disabledInputs = []; // List of date picker inputs that have been disabled
 	this._datepickerShowing = false; // True if the popup picker is showing , false if not
 	this._inDialog = false; // True if showing within a "dialog", false if not
-	this._mainDivId = "ui-datepicker-div"; // The ID of the home datepicker division
+	this._mainDivId = "ui-datepicker-div"; // The ID of the productGrid datepicker division
 	this._inlineClass = "ui-datepicker-inline"; // The name of the inline marker class
 	this._appendClass = "ui-datepicker-append"; // The name of the append marker class
 	this._triggerClass = "ui-datepicker-trigger"; // The name of the trigger marker class
@@ -8191,7 +8191,7 @@ $.extend(Datepicker.prototype, {
 							$.datepicker._gotoToday(event.target);
 						}
 						handled = event.ctrlKey || event.metaKey;
-						break; // current on ctrl or command +home
+						break; // current on ctrl or command +productGrid
 				case 37: if (event.ctrlKey || event.metaKey) {
 							$.datepicker._adjustDate(event.target, (isRTL ? +1 : -1), "D");
 						}
@@ -8228,7 +8228,7 @@ $.extend(Datepicker.prototype, {
 						break; // +1 week on ctrl or command +down
 				default: handled = false;
 			}
-		} else if (event.keyCode === 36 && event.ctrlKey) { // display the date picker on ctrl+home
+		} else if (event.keyCode === 36 && event.ctrlKey) { // display the date picker on ctrl+productGrid
 			$.datepicker._showDatepicker(this);
 		} else {
 			handled = false;
@@ -8615,7 +8615,7 @@ $.extend(Datepicker.prototype, {
 		}
 	},
 
-	/* Update any alternate field to synchronise with the home field. */
+	/* Update any alternate field to synchronise with the productGrid field. */
 	_updateAlternate: function(inst) {
 		var altFormat, date, dateStr,
 			altField = this._get(inst, "altField");
@@ -8713,7 +8713,7 @@ $.extend(Datepicker.prototype, {
 				iValue += num[0].length;
 				return parseInt(num[0], 10);
 			},
-			// Extract a name from the string value and convert to an home
+			// Extract a name from the string value and convert to an productGrid
 			getName = function(match, shortNames, longNames) {
 				var index = -1,
 					names = $.map(lookAhead(match) ? longNames : shortNames, function (v, k) {
@@ -9608,7 +9608,7 @@ $.fn.datepicker = function(options){
 		$.datepicker.initialized = true;
 	}
 
-	/* Append datepicker home container to body if not exist. */
+	/* Append datepicker productGrid container to body if not exist. */
 	if ($("#"+$.datepicker._mainDivId).length === 0) {
 		$("body").append($.datepicker.dpDiv);
 	}
@@ -10028,7 +10028,7 @@ $.widget( "ui.dialog", {
 				props;
 			// Default to a non-submitting button
 			props = $.extend( { type: "button" }, props );
-			// Change the context for the click callback to be the home element
+			// Change the context for the click callback to be the productGrid element
 			click = props.click;
 			props.click = function() {
 				click.apply( that.element[0], arguments );
@@ -10744,7 +10744,7 @@ $.effects.effect.explode = function( o, done ) {
 			left = offset.left + j * width;
 			mx = j - ( cells - 1 ) / 2 ;
 
-			// Create a clone of the now hidden home element that will be absolute positioned
+			// Create a clone of the now hidden productGrid element that will be absolute positioned
 			// within a wrapper div off the -left and -top equal to size of our pieces
 			el
 				.clone()
@@ -11867,7 +11867,7 @@ $.widget( "ui.menu", {
 			var currentMenu = all ? this.element :
 				$( event && event.target ).closest( this.element.find( ".ui-menu" ) );
 
-			// If we found no valid submenu ancestor, use the home menu to close all sub menus anyway
+			// If we found no valid submenu ancestor, use the productGrid menu to close all sub menus anyway
 			if ( !currentMenu.length ) {
 				currentMenu = this.element;
 			}
@@ -12723,7 +12723,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 		this.handle = this.handles.eq( 0 );
 
 		this.handles.each(function( i ) {
-			$( this ).data( "ui-slider-handle-home", i );
+			$( this ).data( "ui-slider-handle-productGrid", i );
 		});
 	},
 
@@ -12989,7 +12989,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 				uiHash.values = this.values();
 			}
 
-			//store the last changed value home for reference when handles overlap
+			//store the last changed value productGrid for reference when handles overlap
 			this._lastChangedValue = index;
 
 			this._trigger( "change", event, uiHash );
@@ -13107,7 +13107,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 
 	//internal values getter
 	// _values() returns array of values trimmed by min and max, aligned by step
-	// _values( home ) returns single value trimmed by min and max, aligned by step
+	// _values( productGrid ) returns single value trimmed by min and max, aligned by step
 	_values: function( index ) {
 		var val,
 			vals,
@@ -13222,7 +13222,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 		keydown: function( event ) {
 			/*jshint maxcomplexity:25*/
 			var allowed, curVal, newVal, step,
-				index = $( event.target ).data( "ui-slider-handle-home" );
+				index = $( event.target ).data( "ui-slider-handle-productGrid" );
 
 			switch ( event.keyCode ) {
 				case $.ui.keyCode.HOME:
@@ -13287,7 +13287,7 @@ $.widget( "ui.slider", $.ui.mouse, {
 			event.preventDefault();
 		},
 		keyup: function( event ) {
-			var index = $( event.target ).data( "ui-slider-handle-home" );
+			var index = $( event.target ).data( "ui-slider-handle-productGrid" );
 
 			if ( this._keySliding ) {
 				this._keySliding = false;
@@ -14098,7 +14098,7 @@ $.widget( "ui.tabs", {
 			}
 		// was active, active tab still exists
 		} else {
-			// make sure active home is correct
+			// make sure active productGrid is correct
 			options.active = this.tabs.index( this.active );
 		}
 
@@ -14435,7 +14435,7 @@ $.widget( "ui.tabs", {
 	},
 
 	_getIndex: function( index ) {
-		// meta-function to give users option to provide a href string instead of a numerical home.
+		// meta-function to give users option to provide a href string instead of a numerical productGrid.
 		if ( typeof index === "string" ) {
 			index = this.anchors.index( this.anchors.filter( "[href$='" + index + "']" ) );
 		}

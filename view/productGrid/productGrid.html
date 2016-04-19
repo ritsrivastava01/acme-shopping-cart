@@ -1,25 +1,31 @@
 
-
+<!--This page is main main of the application
+Also its responsible to render the Product items-->
 <div style="width: 100%">
-
+    <!--divAlert: Show the alert message-->
     <div ng-class="alertClass" id="divAlert">
 
         <strong>{{alertMsg1}}</strong>
        {{alertMsg2}}
     </div>
+    <!--render the filer options-->
     <div id="parent">
+        <!--show the filtered result(s)-->
         <div class="lft" style=" margin-left: 15px;"> showing <label>{{products.length}}</label> results.</div>
+        <!--filter : category based-->
         <div style="width: 25%">  <label>Filter By:</label>
             <a class="alert-link"> {{filterBy}}</a>
 
             <img style="height: 20px;" ng-if="filterBy!='All'" ng-src="{{filterByImage}}"/>
             <div   class="closeBtn" ng-if="filterBy!='All'"  ng-click="refreshProductList([null,null])" ></div></div>
         <div > <span>|</span>
+            <!--Filter : sort based-->
             <label>Short By:</label>
             <a class="alert-link glyphicon glyphicon-sort-by-alphabet" style="cursor: pointer" ng-click="sortAlphabet(true)"></a>
             <a class="alert-link glyphicon glyphicon-sort-by-alphabet-alt" style="cursor: pointer" ng-click="sortAlphabet(false)"></a></div>
         <span>|</span>
         <div >
+            <!--Filert: Price based-->
             <label style=" margin-Right: 10px;">Price Range:</label>
             <input id="slider" type="text" class="span2" value=""
                    data-slider-step="10" />
@@ -30,7 +36,7 @@
 </div>
 
 <div style="overflow-y: auto"  ng-style="{height: hgt+ 'px'}">
-
+<!--Product Grid list-->
 
     <dir-product-item data="products" update-Shortlist-Array="updateShortlistArray(item,isShortlisted)"
                       update-Add-To-Cart-Array="updateAddToCartArray(item,isAddTocart)" open-Details-Window="openDetailsWindow(product)"></dir-product-item>

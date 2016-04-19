@@ -1595,7 +1595,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
   };
 
   // Key event mapper
-  $scope.keys = { 13: 'enter', 32: 'space', 33: 'pageup', 34: 'pagedown', 35: 'end', 36: 'home', 37: 'left', 38: 'up', 39: 'right', 40: 'down' };
+  $scope.keys = { 13: 'enter', 32: 'space', 33: 'pageup', 34: 'pagedown', 35: 'end', 36: 'productGrid', 37: 'left', 38: 'up', 39: 'right', 40: 'down' };
 
   var focusElement = function() {
     self.element[0].focus();
@@ -1747,7 +1747,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
       var month = this.activeDate.getMonth() + (key === 'pageup' ? - 1 : 1);
       this.activeDate.setMonth(month, 1);
       date = Math.min(getDaysInMonth(this.activeDate.getFullYear(), this.activeDate.getMonth()), date);
-    } else if (key === 'home') {
+    } else if (key === 'productGrid') {
       date = 1;
     } else if (key === 'end') {
       date = getDaysInMonth(this.activeDate.getFullYear(), this.activeDate.getMonth());
@@ -1804,7 +1804,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
     } else if (key === 'pageup' || key === 'pagedown') {
       var year = this.activeDate.getFullYear() + (key === 'pageup' ? - 1 : 1);
       this.activeDate.setFullYear(year);
-    } else if (key === 'home') {
+    } else if (key === 'productGrid') {
       date = 0;
     } else if (key === 'end') {
       date = 11;
@@ -1860,7 +1860,7 @@ angular.module('ui.bootstrap.datepicker', ['ui.bootstrap.dateparser', 'ui.bootst
       date = date + columns;
     } else if (key === 'pageup' || key === 'pagedown') {
       date += (key === 'pageup' ? - 1 : 1) * range;
-    } else if (key === 'home') {
+    } else if (key === 'productGrid') {
       date = getStartingYear(this.activeDate.getFullYear());
     } else if (key === 'end') {
       date = getStartingYear(this.activeDate.getFullYear()) + range - 1;

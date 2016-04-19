@@ -1,6 +1,19 @@
 /**
- * Created by Ritesh on 4/15/2016.
+ * Created by Ritesh
+ * contains following directives
+ * 1. dirProductItem: directive for product Item
+ * 2. appHeader: directive for application header
  */
+
+/*
+* dirProductItem: directive
+* -create the product item
+* -used 'productItem' page as template URL
+* -provide following functionality:
+*   --DETAIL CLICK FUNCTION: for open the detail popup
+*   --SHORTLIST CLICK FUNCTION: add/remove the item from shortlist
+*   --ADD TO CART FUNCTION: add/remove the item from cart
+* */
 acmeApp.directive('dirProductItem',function(){
     return{
         restrict: 'E',

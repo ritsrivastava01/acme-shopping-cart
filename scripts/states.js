@@ -1,14 +1,18 @@
+/*
+* File is used for creating states of the application
+* */
 'use strict';
 angular.module('acmeApp')
     .config(
         function ($stateProvider, $urlRouterProvider) {
-
-            COMMON.NAME.HOME={
-                    name:COMMON.NAME.HOME,
+            //Creating HOME state
+            COMMON.NAME.PRODUCT_GRID={
+                    name:COMMON.NAME.PRODUCT_GRID,
                     url: '',
-                    templateUrl:COMMON.UTIL.getRootWebSitePath() +COMMON.PATH.HOME,
+                    templateUrl:COMMON.UTIL.getRootWebSitePath() +COMMON.PATH.PRODUCT_GRID,
                     controller:'productGridCntrl'
             };
+            //Creating Checkout state
             COMMON.NAME.CHECKOUT={
                 name:COMMON.NAME.CHECKOUT,
                 url: '',
@@ -17,7 +21,7 @@ angular.module('acmeApp')
             };
 
 
-
-            $stateProvider.state(COMMON.NAME.HOME);
+            //Add the state in state provider
+            $stateProvider.state(COMMON.NAME.PRODUCT_GRID);
             $stateProvider.state(COMMON.NAME.CHECKOUT);
         })

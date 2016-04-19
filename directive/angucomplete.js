@@ -2,6 +2,9 @@
  * Angucomplete
  * Autocomplete directive for AngularJS
  * By Daryl Rowland
+ * ============================
+ * Update: add autocompletetext to clear the text box
+ * ============================
  */
 
 angular.module('angucomplete', [] )

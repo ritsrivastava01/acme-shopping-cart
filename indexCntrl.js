@@ -2,19 +2,19 @@
 
 angular.module('acmeApp')
 /*
-* mainCntrl = Used to provide the data to header
+* indexCntrl = Used to provide the data to header
 * --Used to handle the callbacks and broadcast the events
 * --Used to initialize the data for application
 */
-.controller('mainCntrl',['$scope', '$http', '$uibModal','_shoppingCartData','$state','$rootScope','_productdata',
+.controller('indexCntrl',['$scope', '$http', '$uibModal','_shoppingCartData','$state','$rootScope','_productdata',
 			function ($scope, $http, $uibModal,_shoppingCartData,$state,$rootScope,_productdata) {
 
-				//Function is used to load the data
+				//FUNCTION:  is used to load the data
 				//Add callback function for making synchronous call
 				_shoppingCartData.loadShoppingData(function () {
 
-					//Redirect to home page
-					$state.transitionTo(COMMON.NAME.HOME).then(function () {
+					//Redirect to productGrid page
+					$state.transitionTo(COMMON.NAME.PRODUCT_GRID).then(function () {
 						//create the slider after load the 'HOME' page
 						$scope.$broadcast('createSlider');
 					});
@@ -24,7 +24,7 @@ angular.module('acmeApp')
 					$scope.corpName = "ACME Corp";//Company Name
 					$scope.autocopletetext = "";//auto-complete text
 
-					//watch function used to update the shortlist count
+					//WATCH FUNCTION: used to update the shortlist count
 					$scope.$watch(
 						// This function returns the value being watched.
 						function () {return _productdata.getArrShortlistItem();},
@@ -37,7 +37,7 @@ angular.module('acmeApp')
 
 						}, true);
 
-					//watch function used to update the cart list items count
+					//WATCH FUNCTION: used to update the cart list items count
 					$scope.$watch(
 
 						// This function returns the value being watched.
@@ -63,45 +63,52 @@ angular.module('acmeApp')
 
 				});
 
-				//Event listner for clear the auto-complete the text box
-
+				//EVENT LISTENER: for clear the auto-complete the text box
 				$scope.$on('clrAotuomplet', function () {
 
 					$scope.selectedCategory = null;
 					$rootScope.$broadcast('clrText', {});
 
 				})
-
+				//BROADCAST the product grid refresh event
 				$scope.selectedCategory = null;
 				$scope.refreshProductGrid = function (newValueId, isTypeId) {
-					//debugger;
+					debugger;
+					//Check the current state name
 					if ($state.$current.self.name == "") {
-
-
 						if (newValueId != null)
 							$scope.$broadcast('refreshGrid', [newValueId, isTypeId]);
 						else
 							$scope.$broadcast('refreshGrid', [null, null]);
 					}
-					else if (($state.$current.self.name == "home")) {
-						$state.transitionTo(COMMON.NAME.HOME).then(function () {
-							$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
-							//$scope.$broadcast('createSlider');
+					//Load the productGrid page
+					//After that broadcast the 'refreshgrid' function
+					else if (($state.$current.self.name == COMMON.NAME.PRODUCT_GRID.name)) {
+						$state.transitionTo(COMMON.NAME.PRODUCT_GRID).then(function () {
+							$scope.$broadcast('refreshGrid', [newValueId, isTypeId]);
 						});
 
 					}
+					//Load productGrid page, after loading
+					//broadcast the 'refreshGrid' function
+					//Broadcast the 'createSlider' function
 					else {
-						$state.transitionTo(COMMON.NAME.HOME).then(function () {
+						$state.transitionTo(COMMON.NAME.PRODUCT_GRID).then(function () {
 							$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
 							$scope.$broadcast('createSlider');
 						});
 					}
 				};
+				//BROADCAST the 'filterShortlistedData'
+				//That event will be received by productGrid page
 				$scope.fliterShortlistedData = function () {
 
 					$scope.$broadcast('fliterShortlistedData');
 				}
+				$scope.onPlaceOrderClick=function(){
+					$state.transitionTo(COMMON.NAME.CHECKOUT);
 
+				}
 
 				$scope.myValue = false;
 				$scope.cart = [];

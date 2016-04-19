@@ -1,6 +1,10 @@
+<!--Modal popup : used to show the details of selected Item-->
+
+<!--Modal Header-->
 <div class="modal-header">
     <h3 class="modal-title"> {{selectedDetailsProduct.title}}</h3>
 </div>
+<!--Modal Body-->
 <div class="modal-body" style="height: 400px;">
 <div id="p_top_section" class="lft fullWidth fullHight">
     <div class="p_rgt_section rgt fullHight">
@@ -40,10 +44,10 @@
 
 </div>
 <div class="modal-footer">
-
-    <button class="buttonApp" style="float: right;width: 20%"  ng-click="placeOrder();"
+<!--Save and continue button-->
+    <button class="buttonApp" style="float: right;width:30%"  ng-click="addCard_ContinueShopping();"
     <button >
-        <span>PLACE ORDER</span>
+        <span>Add to Cart & continue Shopping</span>
     </button>
     </button>
 </div>
