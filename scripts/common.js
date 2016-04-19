@@ -1,8 +1,6 @@
-/**
- * Created by Ritesh on 4/16/2016.
- */
-//Common namespace for common function(s)
 
+//Common namespace for common function(s)
+//Used to create  common function for the application
 var COMMON = {};
 COMMON.UTIL = {
 
@@ -12,11 +10,13 @@ COMMON.UTIL = {
 
 
 }
+//page Name
 COMMON.NAME={
     PRODUCT_GRID:'productGrid',
     CHECKOUT:'checkout',
     DETAIL:"detail"
 }
+//Page Path
 COMMON.PATH={
     PRODUCT_GRID:'/view/productGrid/productGrid.html',
     CHECKOUT:'/view/checkout/checkout.html',

@@ -43,6 +43,17 @@ acmeApp.directive('dirProductItem',function(){
         }
     }
 })
+    /*
+    * appHeader  directive used for:
+    * Create the header for application
+    * Used header.html as template URL
+    * it provide following functionality:
+    *   1. Filter based on category (eg: men,Infant,Women etc)
+    *   2. Provide auto-complete functionality for powerful searching
+    *   3. Provide shortlist filter
+    *   4. display the shopping cart preview
+    *   5. PLACE ORDER functionality
+    * */
     .directive('appHeader',function()
     {
         return{
@@ -67,19 +78,23 @@ acmeApp.directive('dirProductItem',function(){
 
             link:function($scope, elem, attrs, ctrl){
 
+                //FUNCTION: display only filtered data
                 $scope.fliterShortlist=function(){
 
                     $scope.fliterShortlistedData();
                 }
+                //FUNCTION:Filter the grid by category ID
                 $scope.filterGrid=function(categoryId){
                     $scope.change({newValueId: categoryId,isTypeId:true});
                 }
 
+                //FUNCTION: for open the checkout page
                 $scope.placeOrder=function(){
                     $('#SmallCart').toggle(300);
                         $scope.placeOrderClick();
                 }
 
+                //FUNCTION:used to show/hide the cart preview
                 $( ".liCrt" ).click(function() {
                     $('#SmallCart').toggle(300);
 
@@ -87,6 +102,7 @@ acmeApp.directive('dirProductItem',function(){
 
                 $scope.selectedCategory=null;
 
+                //WATCH FUNCTION: used to wantch the auto complete
                 $scope.$watch(
                     'selectedCategory',function(newValue, oldValue){
                         if($scope.selectedCategory!=null)

@@ -57,14 +57,16 @@ angular.module('acmeApp')
                     $scope.products=[filterObj]
                 }
 
-               $scope.getMaxMinValueForSlider();
-                $scope.redrawSlider();
+
             }
             else{
                 $scope.filterBy="All";
                 $scope.products=_shoppingCartData.getRawData();
                 $scope.$emit('clrAotuomplet');
             }
+
+            $scope.getMaxMinValueForSlider();
+            $scope.redrawSlider();
         };
 
 
@@ -101,7 +103,7 @@ angular.module('acmeApp')
             $scope.getMaxMinValueForSlider();
             $scope.slider= new Slider('#slider', { id: "rangeSlider", min: $scope.minValue, max: $scope.maxValue , range: true, value: [$scope.minValue, $scope.maxValue] })
                 .on('slideStop', function(data){
-                    debugger;
+                    //$scope.$emit('clrAotuomplet');
                     var sortData=[];
                     if($scope.category==''){
                         angular.forEach(_shoppingCartData.getRawData(),function(val,index){

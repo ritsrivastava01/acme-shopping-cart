@@ -501,7 +501,7 @@ nav ul:after {
  .cartItm
 {
     height: 75px;
-    background-color: rgba(245, 245, 245, 0.37);
+   
     border-bottom: 1px solid #f5f5f5;
 }
 .ctf_lft_item {
@@ -691,3 +691,8 @@ nav ul:after {
     background: #CCCCCC;
 }
 /***********************/
+/***CSS for Auto Complete***/
+.angucomplete-row:hover{
+    border-radius: 8px;
+}
+/**************************/
