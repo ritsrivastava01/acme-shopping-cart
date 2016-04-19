@@ -77,7 +77,7 @@ acmeApp.directive('dirProductItem',function(){
             templateUrl:'template/header.html',
 
             link:function($scope, elem, attrs, ctrl){
-
+                $scope.Math = window.Math;
                 //FUNCTION: display only filtered data
                 $scope.fliterShortlist=function(){
 

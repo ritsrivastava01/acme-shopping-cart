@@ -45,7 +45,7 @@ angular.module('acmeApp')
 
 						// This is the change listener, called when the value returned from the above function changes
 						function (newVal, oldVal) {
-
+						//debugger;
 							//Calculate the total cost
 							//used to show in cart preview popup
 							$scope.totalBeforeDiscount = 0;//Total cost before discount

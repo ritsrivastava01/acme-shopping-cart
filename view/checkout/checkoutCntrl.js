@@ -35,7 +35,7 @@ angular.module('acmeApp')
 
         //update the quantity of selected product
             $scope.updateCartItem=function(objProduct,count){
-
+                debugger;
             var quantity=objProduct.quantity;
                 if(count==1)
                 {

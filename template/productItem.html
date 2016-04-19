@@ -14,7 +14,10 @@ Used to render the product Item-->
                 <h1><p style="height: 30px;">{{product.title}}</p></h1>
 
                 <h2><p>{{product.size}}</p></h2>
-                <h2><p style="display: inline">Rs {{product.priceNew}}</p> | <p style="display: inline;text-decoration: line-through;">Rs {{product.priceOld}}</p></h2>
+                <h2><p style="display: inline">Rs {{product.priceNew}}</p> | <p style="display: inline;text-decoration: line-through;">Rs {{product.priceOld}}</p>
+                <!--    <div style="display: inline">(Dic. {{$scope.Math.round(((product.priceOld-product.priceNew)/product.priceOld)*100)}} %)</div>-->
+                </h2>
+
                 <div class="informations">
 
                         <div class="details"  ng-click="onClickDetailBtn(product)"></div>

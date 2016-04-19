@@ -142,7 +142,7 @@ angular.module('acmeApp')
             //update the shorlist Array
 
 
-
+            debugger;
             localStorage.setItem('cartItm',JSON.stringify(arrAddToCartItem));
         };
         this.getArrAddToCartItem=function(){return arrAddToCartItem};
@@ -169,7 +169,7 @@ angular.module('acmeApp')
 
                 else{
                     angular.forEach(arrAddToCartItem,function(val,index){
-                        if(val.id=item.id)
+                        if(val.id==item.id)
                         {
                             val.quantity=item.quantity;
                         }
