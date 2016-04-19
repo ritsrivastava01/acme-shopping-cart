@@ -36,7 +36,7 @@ angular.module('acmeApp')
                         angular.forEach(previousSaveShortItm,function(val,index){
                             if(val.id==item.id){
                                 item.isSortlisted=true;
-                                _productdata.updateShortListItem(item);
+                                _productdata.updateShortListItem(val);
                             }
 
                         })
@@ -47,7 +47,7 @@ angular.module('acmeApp')
                           if(val.id==item.id)
                           {
                               item.isAddedtocart=true;
-                              _productdata.updateArrAddToCartItem(item);
+                              _productdata.updateArrAddToCartItem(val);
                           }
 
                       })
@@ -69,6 +69,19 @@ angular.module('acmeApp')
 
             });
 
+        }
+        //Return the selected object based on passed ID
+        this.getSelectedObject=function(objId)
+        {
+            var selObj=null;
+
+            angular.forEach(rawData,function(val,index){
+                if(val.id==objId)
+                {
+                    selObj=val;
+                }
+            })
+            return selObj;
         }
 
         //get the Data as Raw form
@@ -111,15 +124,64 @@ angular.module('acmeApp')
             var firstIndex = indexes[0];
             if(firstIndex==undefined)
             {
-                item.quantity=1;
+
                 arrAddToCartItem.push(item);
+                angular.forEach(arrShortlistItem,function(val,index){
+                    if(item.id==val.id)
+                        val.isAddedtocart=true;
+                })
             }
 
             else{
+                angular.forEach(arrShortlistItem,function(val,index){
+                    if(item.id==val.id)
+                        val.isAddedtocart=false;
+                })
                 arrAddToCartItem.splice(firstIndex,1);
             }
+            //update the shorlist Array
+
+
+
             localStorage.setItem('cartItm',JSON.stringify(arrAddToCartItem));
         };
         this.getArrAddToCartItem=function(){return arrAddToCartItem};
+
+        this.updateAddtoCartCount=function(item)
+        {
+            if(arrAddToCartItem.length==0){
+                arrAddToCartItem.push(item);
+            }
+            else
+            {
+
+                var indexes = $.map(arrAddToCartItem, function(obj, index) {
+                    if(obj.id == item.id) {
+                        return index;
+                    }
+                });
+                var firstIndex = indexes[0];
+                if(firstIndex==undefined)
+                {
+
+                    arrAddToCartItem.push(item);
+                }
+
+                else{
+                    angular.forEach(arrAddToCartItem,function(val,index){
+                        if(val.id=item.id)
+                        {
+                            val.quantity=item.quantity;
+                        }
+                    })
+                }
+
+
+
+
+        }
+            localStorage.setItem('cartItm',JSON.stringify(arrAddToCartItem));
+        };
+
     })
 

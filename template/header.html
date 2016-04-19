@@ -8,20 +8,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">{{corpName}}</a>
+            <a class="navbar-brand handCursor" >{{corpName}}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left" style="padding-top: 2px">
-                <li ng-repeat="objHeader in headerCategorie" ><a href="#">{{objHeader.category}}'s Wear</a></li>
+                <li ng-repeat="objHeader in headerCategories"  class="handCursor" ng-click="filterGrid(objHeader.categoryId)"><a >{{objHeader.category}}'s Wear</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-heart" ></span>
+                <li class="handCursor" ng-click="fliterShortlist()"><a ><span class="glyphicon glyphicon-heart" ></span>
                     <div class="cartIcon">{{shortlistCount}}</div>
                 </a></li>
-                <li class="liCrt" style="padding-right: 15px;"><a href="#"><span class="glyphicon glyphicon-shopping-cart" ></span>
+                <li class="liCrt handCursor" style="padding-right: 15px;"><a><span class="glyphicon glyphicon-shopping-cart" ></span>
                 <div class="cartIcon">{{cartCount}}</div>
                 </a>
 
@@ -37,8 +37,23 @@
 
 
             <form class="navbar-form navbar-right" role="search">
-                <angucomplete id="ex1" placeholder="Search for..."  pause="100" autocopletetext="autocopletetext"
-                              selectedobject="selectedCategory" localdata="headerCategorie" searchfields="category" titlefield="category"
+
+
+               <!--<div angucomplete-alt
+                     id="ex1"
+                     placeholder="Search for..."
+                     autocopletetext="autocopletetext"
+                     pause="100"
+                     selected-object="selectedCategory"
+                     local-data="autoCompleteData"
+                     search-fields="title"
+                    title-field="title",
+                     minlength="1"
+                     input-class="form-control form-control-small"
+                     match-class="highlight">
+                </div>-->
+              <angucomplete id="ex1" placeholder="Search for..."  pause="100" autocopletetext="autocopletetext" description-field="title"
+                              selectedobject="selectedCategory" localdata="autoCompleteData" searchfields="title" titlefield="title"
                               minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
             </form>
         </div><!-- /.navbar-collapse -->
@@ -66,7 +81,7 @@
         <div >
             <div ng-repeat="objItm in shoppingCart" class="cartItm">
                 <div class="ctf_lft_item lft">
-                    <img ng-src="{{objItm.image}}" style="height: 90%;width: 100%;">
+                    <img ng-src="{{objItm.image}}" style="height: 90%;">
                 </div>
                 <div class="ctf_rgt_item lft"><div class="lft"> {{objItm.title}}</div>
                     <div class="rgt">Rs {{objItm.priceNew}}</div>

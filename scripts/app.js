@@ -1,3 +1,3 @@
-var acmeApp=angular.module('acmeApp',[ 'ui.bootstrap', 'ngAnimate', 'angularSpinner','ui.router','angucomplete'])
+var acmeApp=angular.module('acmeApp',[ 'ui.bootstrap', 'ngAnimate','ui.router','angucomplete'])
 
 

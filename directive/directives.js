@@ -37,17 +37,16 @@ acmeApp.directive('dirProductItem',function(){
 
             scope:{
                 corpName:"=name",
-                headerCategorie:'=headerCategories',
+                headerCategories:'=headerCategories',
                 shortlistCount:'=shortlistCount',
-
+                autoCompleteData:'=',
                 change:'&onchangFilter',
                 cartCount:"=cartCount",
                 totalBeforeDiscount:'=totalBeforeDiscount',
                 total1AfterDiscount:'=totalAfterDiscount',
                 shoppingCart:'=shoppingCart',
                 placeOrderClick:"&onPlaceOrderClick",
-
-
+                fliterShortlistedData:'&fliterShortlistedGridData'
             },
 
 
@@ -55,6 +54,13 @@ acmeApp.directive('dirProductItem',function(){
 
             link:function($scope, elem, attrs, ctrl){
 
+                $scope.fliterShortlist=function(){
+
+                    $scope.fliterShortlistedData();
+                }
+                $scope.filterGrid=function(categoryId){
+                    $scope.change({newValueId: categoryId,isTypeId:true});
+                }
 
                 $scope.placeOrder=function(){
                     $('#SmallCart').toggle(300);
@@ -72,7 +78,8 @@ acmeApp.directive('dirProductItem',function(){
                     'selectedCategory',function(newValue, oldValue){
                         if($scope.selectedCategory!=null)
                         {
-                            $scope.change({newValue: newValue});
+                            //debugger;
+                            $scope.change({newValueId: newValue.originalObject.id,isTypeId:false});
                         }
                         else{
                             $scope.change({newValue: null});

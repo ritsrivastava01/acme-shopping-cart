@@ -6,10 +6,13 @@
 
     <li ng-repeat="product in directiveScope" class="col-sm-6 col-md-4 col-xs-12" style="text-align: center;" >
         <div style=" margin: 0 auto;height: 100%;width: 100%;">
-            <a>
-                <div class="image" ng-style="{'background-image':'url({{product.image}})'}"></div>
 
-                <h1><p>{{product.title}}</p></h1>
+            <a>
+                <div class="image" >
+                    <img style="height: 100% " src="{{product.image}}">
+                </div>
+
+                <h1><p style="height: 30px;">{{product.title}}</p></h1>
 
                 <h2><p>{{product.size}}</p></h2>
                 <h2><p style="display: inline">Rs {{product.priceNew}}</p> | <p style="display: inline;text-decoration: line-through;">Rs {{product.priceOld}}</p></h2>
@@ -42,6 +45,9 @@
 
                 </div>
             </a>
+            <div class="sortlisted sortlistedLogo" ng-if="product.isSortlisted"  >
+
+            </div>
            <!-- <div class="divInfo"><div style="display: inline;">added in cart</div> </div>-->
             <div ng-if="product.isAddedtocart" class="adc">
                 <div class="divInfo"><div style="display: inline;">added in cart</div> <div   class="closeBtn addedtxt"   ng-click="updateCart(product,false);"></div></div>

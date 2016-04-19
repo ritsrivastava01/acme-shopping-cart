@@ -8,15 +8,22 @@
        {{alertMsg2}}
     </div>
     <div id="parent">
-        <div style="width: 20%">  <label>Category By:</label>
+        <div class="lft" style=" margin-left: 15px;"> showing <label>{{products.length}}</label> results.</div>
+        <div style="width: 25%">  <label>Filter By:</label>
             <a class="alert-link"> {{filterBy}}</a>
 
             <img style="height: 20px;" ng-if="filterBy!='All'" ng-src="{{filterByImage}}"/>
-            <div   class="closeBtn" ng-if="filterBy!='All'"  ng-click="refreshProductList(null)" ></div></div>
+            <div   class="closeBtn" ng-if="filterBy!='All'"  ng-click="refreshProductList([null,null])" ></div></div>
         <div > <span>|</span>
             <label>Short By:</label>
             <a class="alert-link glyphicon glyphicon-sort-by-alphabet" style="cursor: pointer" ng-click="sortAlphabet(true)"></a>
             <a class="alert-link glyphicon glyphicon-sort-by-alphabet-alt" style="cursor: pointer" ng-click="sortAlphabet(false)"></a></div>
+        <span>|</span>
+        <div >
+            <label style=" margin-Right: 10px;">Price Range:</label>
+            <input id="slider" type="text" class="span2" value=""
+                   data-slider-step="10" />
+        </div>
 
     </div>
 

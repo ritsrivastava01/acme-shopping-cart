@@ -4,7 +4,7 @@
 angular.module('acmeApp')
 
 .controller('mainCntrl',function ($scope, $http, $uibModal,_shoppingCartData,$state,$rootScope,_productdata) {
-		$scope.selectedDetailsProduct={
+		/*$scope.selectedDetailsProduct={
 			"category":"Women",
 			"categoryId":2,
 			"categoryImage":"assets/images/women.svg",
@@ -16,9 +16,10 @@ angular.module('acmeApp')
 			"size":"6-12 M",
 			"isSortlisted":false,
 			"isAddedtocart":false,
+			"quantity":1,
 			"desc":"Inspired by latest trend, this pretty hairband will turn your little girl into a princess. Create an effortless fashion statement by pairing this hairband with a beautiful dress along with comfortable sandals to complete the look. Features Holds hair in place without breaking them."
-		};
-		$uibModal.open({
+		};*/
+		/*$uibModal.open({
 			templateUrl:COMMON.UTIL.getRootWebSitePath()+COMMON.PATH.DETAIL,
 			controller: 'detailCntrl',
 			windowClass: 'large-Modal',
@@ -27,13 +28,16 @@ angular.module('acmeApp')
 					return $scope.selectedDetailsProduct;
 				}
 			}
-		});
+		});*/
 
 
 		_shoppingCartData.loadShoppingData(function(){
-			$state.transitionTo(COMMON.NAME.HOME);
-			//$state.transitionTo(COMMON.NAME.CHECKOUT);
-			$scope.categories =_shoppingCartData.getGroupLabel();
+			//create the slider after load the 'HOME' page
+			$state.transitionTo(COMMON.NAME.HOME).then(function(){
+				$scope.$broadcast('createSlider');
+			});
+			$scope.headerCategories =_shoppingCartData.getGroupLabel();
+			$scope.dataForAutoComplete =_shoppingCartData.getRawData();
 			$scope.corpName="ACME Corp";
 
 			$scope.$watch(function () {
@@ -83,18 +87,42 @@ angular.module('acmeApp')
 		$scope.autocopletetext="";
 		$scope.$on('clrAotuomplet',function()
 		{
+
 			$scope.selectedCategory=null;
 			$rootScope.$broadcast('clrText',{});
 
 		})
 
 		$scope.selectedCategory=null;
-		$scope.refreshProductGrid =function(newValue){
-			if(newValue!=null)
-			$scope.$broadcast('refreshGrid',newValue.originalObject);
-			else
-				$scope.$broadcast('refreshGrid',null);
+		$scope.refreshProductGrid =function(newValueId,isTypeId){
+			//debugger;
+			if($state.$current.self.name=="") {
+
+
+				if (newValueId != null)
+					$scope.$broadcast('refreshGrid', [newValueId, isTypeId]);
+				else
+					$scope.$broadcast('refreshGrid', [null, null]);
+			}
+			else if(($state.$current.self.name=="home"))
+			{
+				$state.transitionTo(COMMON.NAME.HOME).then(function(){
+					$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
+					//$scope.$broadcast('createSlider');
+				});
+
+			}
+			else{
+				$state.transitionTo(COMMON.NAME.HOME).then(function(){
+					$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
+					$scope.$broadcast('createSlider');
+				});
+			}
 		};
+		$scope.fliterShortlistedData=function(){
+
+			$scope.$broadcast('fliterShortlistedData');
+		}
 
 
 	$scope.myValue = false;

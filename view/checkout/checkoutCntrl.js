@@ -4,6 +4,8 @@
 
 angular.module('acmeApp')
 
+
+
     .controller('checkoutCntrl',['$scope','_productdata',function($scope,_productdata){
         $scope.getTotalAmount=function(){
             $scope.totalAmount=0;
@@ -26,6 +28,7 @@ angular.module('acmeApp')
             {
                 objProduct.quantity+=count
             }
+                _productdata.updateAddtoCartCount(objProduct);
                 $scope.getTotalAmount();
         };
         $scope.removeFromCart=function(objIteml){
@@ -33,6 +36,9 @@ angular.module('acmeApp')
             _productdata.updateArrAddToCartItem(objIteml);
             $scope.getTotalAmount();
         }
+    $scope.finalPayment=function(){
+
+    }
 
     }])
 
