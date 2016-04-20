@@ -48,7 +48,7 @@ acmeApp.directive('dirProductItem',function(){
     * Create the header for application
     * Used header.html as template URL
     * it provide following functionality:
-    *   1. Filter based on category (eg: men,Infant,Women etc)
+    *   1. Filter based on category (eg: Men,Infant,Women etc)
     *   2. Provide auto-complete functionality for powerful searching
     *   3. Provide shortlist filter
     *   4. display the shopping cart preview
