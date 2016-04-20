@@ -1,0 +1,76 @@
+<!--this file is used to add product in database-->
+
+<div class="row fullHight">
+    <div class="panel panel-default fullHight" >
+
+        <div class="panel-heading">
+
+            <h3 class="panel-title" style="display: inline-block"><div class="header_left">
+                <label style="    float: left;margin-right: 5px;">Shopping Cart:</label>
+                <label style="font-size:12px ">Add your Product here</label>
+            </div></h3>
+        </div>
+    <script>
+
+
+    </script>
+    <div class="col-md-12" >
+            <div style=" margin: 20px;">
+        <div class="row" >
+            <div  iv class="col-md-6 txtCenter" >
+                <div><strong>Product Preview</strong></div>
+                <img id="image" style="height: 100%" />
+            </div>
+            <div class="col-md-6 rightPanel" >
+                <div>
+                <label>Select Product Image </label>
+                <label><span class="btn btn-primary btn-file">
+            Browse <input type="file" accept=".png,.jpeg" onchange="angular.element(this).scope().uploadFile(this)">
+        </span> </label>
+            </div>
+
+
+
+                <div class="input-group">
+                    <span class="input-group-addon">Product Title:</span>
+                    <input type="text"  class="form-control" style="width: 100%;" placeholder="Your Product Name"/>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon">Description:</span>
+                    <textarea class="form-control" style="width: 100%;height: 250px" placeholder="Tell something about your product"></textarea>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Product Price New:</span>
+                    <input type="text"  class="form-control" style="width: 100%;" placeholder="Your New Product Price"/>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">Product Price Old:</span>
+                    <input type="text"  class="form-control" style="width: 100%;" placeholder="Your Old Product Price"/>
+                </div>
+                <div >
+                    <div class="rgt" style="width: 30%">
+                        <button class="buttonApp" style="float: right;width: 100%"  ng-click="addProduct();"
+                        <button >
+                            <span>ADD PRODUCT</span>
+                        </button>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+            </div>
+       <!-- <input type="file"  onchange="angular.element(this).scope().uploadFile(this)"/>-->
+
+
+
+
+
+
+    </div>
+    <!--<div class="col-md-6 ">.col-md-6</div>-->
+</div>
+    </div>

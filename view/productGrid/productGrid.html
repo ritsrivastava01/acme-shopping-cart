@@ -9,35 +9,81 @@ Also its responsible to render the Product items-->
        {{alertMsg2}}
     </div>
     <!--render the filer options-->
-    <div id="parent">
+
+
+    <div id="parent" class="row">
         <!--show the filtered result(s)-->
-        <div class="lft" style=" margin-left: 15px;"> showing <label>{{products.length}}</label> results.</div>
+        <div class="col-md-3" > showing <label>{{products.length}}</label> results.</div>
+        <div class="col-md-2"></div>
         <!--filter : category based-->
-        <div style="width: 25%">  <label>Filter By:</label>
+        <div class="col-md-2">  <label>Filter By:</label>
             <a class="alert-link"> {{filterBy}}</a>
 
             <img style="height: 20px;" ng-if="filterBy!='All'" ng-src="{{filterByImage}}"/>
-            <div   class="closeBtn" ng-if="filterBy!='All'"  ng-click="refreshProductList([null,null])" ></div></div>
-        <div > <span>|</span>
+            <div tooltip-placement="bottom" uib-tooltip="Clear Filter"  class="closeBtn" ng-if="filterBy!='All'"  ng-click="refreshProductList([null,null])" ></div>
+        </div>
+        <div class="col-md-2">
+            <div class="row">
+            <div class="col-md-6">
+            <span>|</span>
             <!--Filter : sort based-->
-            <label>Sort By:</label>
-            <a class="alert-link glyphicon glyphicon-sort-by-alphabet" style="cursor: pointer" ng-click="sortAlphabet(true)"></a>
-            <a class="alert-link glyphicon glyphicon-sort-by-alphabet-alt" style="cursor: pointer" ng-click="sortAlphabet(false)"></a></div>
-        <span>|</span>
-        <div >
+            <label>Title:</label>
+            <a class="alert-link glyphicon glyphicon-sort-by-alphabet" style="cursor: pointer" ng-click="sortGridData('title',true)" tooltip-placement="bottom" uib-tooltip="Ascending Order"></a>
+            <a class="alert-link glyphicon glyphicon-sort-by-alphabet-alt" style="cursor: pointer" ng-click="sortGridData('title',false)" tooltip-placement="bottom" uib-tooltip="Descending Order"></a>
+            </div>
+            <div class="col-md-6">
+                <span>|</span>
+                <!--Filter : sort based-->
+                <label>Price:</label>
+                <a class="alert-link glyphicon glyphicon-sort-by-attributes" style="cursor: pointer" ng-click="sortGridData('priceNew',true)" tooltip-placement="bottom" uib-tooltip="Ascending Order"></a>
+                <a class="alert-link glyphicon glyphicon-sort-by-attributes-alt" style="cursor: pointer" ng-click="sortGridData('priceNew',false)" tooltip-placement="bottom" uib-tooltip="Descending Order"></a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <span>|</span>
             <!--Filert: Price based-->
-            <label style=" margin-Right: 10px;">Price Range:</label>
+            <label style="    margin-right: 10px;">Price Range:</label>
             <input id="slider" type="text" class="span2" value=""
                    data-slider-step="10" />
         </div>
 
     </div>
 
-</div>
 
-<div style="overflow-y: auto"  ng-style="{height: hgt+ 'px'}">
+
+
+ <!--   <div id="parent ">
+        &lt;!&ndash;show the filtered result(s)&ndash;&gt;
+        <div class="lft" style=" margin-left: 15px;"> showing <label>{{products.length}}</label> results.</div>
+        &lt;!&ndash;filter : category based&ndash;&gt;
+        <div style="width: 25%">  <label>Filter By:</label>
+            <a class="alert-link"> {{filterBy}}</a>
+
+            <img style="height: 20px;" ng-if="filterBy!='All'" ng-src="{{filterByImage}}"/>
+            <div   class="closeBtn" ng-if="filterBy!='All'"  ng-click="refreshProductList([null,null])" ></div></div>
+        <div > <span>|</span>
+            &lt;!&ndash;Filter : sort based&ndash;&gt;
+            <label>Sort By:</label>
+            <a class="alert-link glyphicon glyphicon-sort-by-alphabet" style="cursor: pointer" ng-click="sortAlphabet(true)"></a>
+            <a class="alert-link glyphicon glyphicon-sort-by-alphabet-alt" style="cursor: pointer" ng-click="sortAlphabet(false)"></a></div>
+        <span>|</span>
+        <div >
+            &lt;!&ndash;Filert: Price based&ndash;&gt;
+            <label style=" margin-Right: 10px;">Price Range:</label>
+            <input id="slider" type="text" class="span2" value=""
+                   data-slider-step="10" />
+        </div>
+
+    </div>-->
+
+</div>
+<div id="row">
+<div style="overflow-y: auto"  ng-style="{height: hgt+ 'px'}" class="col-md-12">
 <!--Product Grid list-->
 
     <dir-product-item data="products" update-Shortlist-Array="updateShortlistArray(item,isShortlisted)"
                       update-Add-To-Cart-Array="updateAddToCartArray(item,isAddTocart)" open-Details-Window="openDetailsWindow(product)"></dir-product-item>
+</div>
 </div>

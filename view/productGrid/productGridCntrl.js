@@ -190,25 +190,32 @@ angular.module('acmeApp')
         }
 
         //FUNCTION: used to sort the data on their title
-        $scope.sortAlphabet=function(isAscending){
+        $scope.sortGridData=function(sortBy,isAscending){
+
 
             if(isAscending)
             {
                 $scope.products.sort(function(a, b){
-                    var titleA=a.title.toLowerCase(), titleB=b.title.toLowerCase()
-                    if (titleA < titleB) //sort string ascending
+                    if(sortBy=='title')
+                        var attrA=a[sortBy].toString().toLowerCase(), attrB=b[sortBy].toString().toLowerCase();
+                    else if(sortBy=='priceNew')
+                        var attrA=a[sortBy], attrB=b[sortBy];
+                    if (attrA < attrB) //sort string ascending
                         return -1
-                    if (titleA > titleB)
+                    if (attrA > attrB)
                         return 1
                     return 0 //default return value (no sorting)
                 })
             }
             else{
                 $scope.products.sort(function(a, b){
-                    var titleA=a.title.toLowerCase(), titleB=b.title.toLowerCase()
-                    if (titleA > titleB) //sort string ascending
+                    if(sortBy=='title')
+                        var attrA=a[sortBy].toString().toLowerCase(), attrB=b[sortBy].toString().toLowerCase();
+                    else if(sortBy=='priceNew')
+                        var attrA=a[sortBy], attrB=b[sortBy];
+                    if (attrA > attrB) //sort string ascending
                         return -1
-                    if (titleA < titleB)
+                    if (attrA < attrB)
                         return 1
                     return 0 //default return value (no sorting)
                 })

@@ -19,9 +19,18 @@ angular.module('acmeApp')
                 templateUrl:COMMON.UTIL.getRootWebSitePath() +COMMON.PATH.CHECKOUT,
                 controller:'checkoutCntrl'
             };
+            //Creating Admin state
+            COMMON.NAME.ADMIN={
+                name:COMMON.NAME.ADMIN,
+                url: '',
+                templateUrl:COMMON.UTIL.getRootWebSitePath() +COMMON.PATH.ADMIN,
+                controller:'adminCntrl'
+            };
+
 
 
             //Add the state in state provider
             $stateProvider.state(COMMON.NAME.PRODUCT_GRID);
             $stateProvider.state(COMMON.NAME.CHECKOUT);
+            $stateProvider.state(COMMON.NAME.ADMIN);
         })

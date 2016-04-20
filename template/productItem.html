@@ -20,13 +20,13 @@ Used to render the product Item-->
 
                 <div class="informations">
 
-                        <div class="details"  ng-click="onClickDetailBtn(product)"></div>
+                        <div class="details"  ng-click="onClickDetailBtn(product)" tooltip-placement="bottom" uib-tooltip="Detailed View" ></div>
                     <div ng-switch on="product.isSortlisted">
 
-                    <div class="fresh" ng-switch-when="false" ng-click="updateShortlist(product,true)">
+                    <div class="fresh" ng-switch-when="false" ng-click="updateShortlist(product,true)" tooltip-placement="bottom" uib-tooltip="Add To Shortlist">
 
                     </div>
-                    <div class="sortlisted" ng-switch-when="true"  ng-click="updateShortlist(product,false)">
+                    <div class="sortlisted" ng-switch-when="true"  ng-click="updateShortlist(product,false)" tooltip-placement="bottom"  uib-tooltip="Shortlisted">
 
                     </div>
                 </div>

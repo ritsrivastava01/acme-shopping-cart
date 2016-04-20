@@ -59,10 +59,11 @@ angular.module('acmeApp')
                         groupedData[categoryId].push(item);
                     } else {
                         // fetch label and id of grouped data
-                        var objData={category:item.category,categoryId:item.categoryId,imgPath:item.categoryImage};
+                        var objData={category:item.category +"'s Wears",categoryId:item.categoryId,imgPath:item.categoryImage};
                         groupLabel.push(objData);
                         groupedData[categoryId] = [item];
                     }
+
                 });
 
                 _callback();
@@ -142,7 +143,7 @@ angular.module('acmeApp')
             //update the shorlist Array
 
 
-            debugger;
+            //debugger;
             localStorage.setItem('cartItm',JSON.stringify(arrAddToCartItem));
         };
         this.getArrAddToCartItem=function(){return arrAddToCartItem};

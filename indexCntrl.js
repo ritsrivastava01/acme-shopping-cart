@@ -14,12 +14,13 @@ angular.module('acmeApp')
 				_shoppingCartData.loadShoppingData(function () {
 
 					//Redirect to productGrid page
-					$state.transitionTo(COMMON.NAME.PRODUCT_GRID).then(function () {
-						//create the slider after load the 'HOME' page
-						$scope.$broadcast('createSlider');
-					});
+					$scope.loadProductItemGridPage();
+
 					//Create the Data source for header
 					$scope.headerCategories = _shoppingCartData.getGroupLabel();//Header label data
+					//push Admin option
+					$scope.headerCategories.push({category:'Admin',categoryId:'0',imgPath:''});
+
 					$scope.dataForAutoComplete = _shoppingCartData.getRawData();//Auto-complete control data
 					$scope.corpName = "ACME Corp";//Company Name
 					$scope.autocopletetext = "";//auto-complete text
@@ -63,17 +64,38 @@ angular.module('acmeApp')
 
 				});
 
+				$scope.loadProductItemGridPage=function(){
+					$state.transitionTo(COMMON.NAME.PRODUCT_GRID).then(function () {
+						//create the slider after load the 'HOME' page
+						$scope.$broadcast('createSlider');
+					});
+
+				}
+
 				//EVENT LISTENER: for clear the auto-complete the text box
 				$scope.$on('clrAotuomplet', function () {
 
 					$scope.selectedCategory = null;
 					$rootScope.$broadcast('clrText', {});
 
+				});
+				//EVENT LISTENER: to load productGridItem Page
+				$scope.$on('loadHomePage',function(){
+					$scope.loadProductItemGridPage();
 				})
 				//BROADCAST the product grid refresh event
 				$scope.selectedCategory = null;
 				$scope.refreshProductGrid = function (newValueId, isTypeId) {
-					debugger;
+
+					//load adiim page
+					if(newValueId=='0')
+					{
+						$state.transitionTo(COMMON.NAME.ADMIN);
+					}
+					//ELSE load other page
+					else{
+
+
 					//Check the current state name
 					if ($state.$current.self.name == "") {
 						if (newValueId != null)
@@ -97,6 +119,7 @@ angular.module('acmeApp')
 							$scope.$broadcast('refreshGrid', [newValueId, isTypeId])
 							$scope.$broadcast('createSlider');
 						});
+					}
 					}
 				};
 				//BROADCAST the 'filterShortlistedData'

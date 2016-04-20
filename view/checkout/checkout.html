@@ -89,13 +89,16 @@
 							<td ><div class="txtCenter">Rs {{objItm.priceNew}}</div>
 								<div class="txtCenter notApplicable" >Rs {{objItm.priceOld}}</div></td>
 							<td class="txtCenter"><div class="promrp">
-								<p  style="cursor: pointer;" ng-click=" updateCartItem(objItm,-1)">-</p>
+								<p  tooltip-placement="bottom" uib-tooltip="Decrease By 1" style="cursor: pointer;" ng-click=" updateCartItem(objItm,-1)">-</p>
 								<p class="proqty">{{objItm.quantity}}</p>
-								<p  style="cursor: pointer;"  ng-click=" updateCartItem(objItm,1)">+</p>
+								<p  style="cursor: pointer;"  tooltip-placement="bottom" uib-tooltip="Increase By 1"  ng-click=" updateCartItem(objItm,1)">+</p>
 
 							</div></td>
 							<td style="padding: 0px 10px 0px 10px"><div class="lft" style="font-weight: bold">Rs {{objItm.quantity*objItm.priceNew}}</div>
-								<div class="rgt handCursor"><img style="height: 20px" src="assets/images/delete.svg" ng-click="removeFromCart(objItm)"/></div></td>
+								<div class="rgt handCursor">
+									<a class="alert-link glyphicon glyphicon-edit" tooltip-placement="bottom" uib-tooltip="Edit cart"  style="cursor: pointer" ng-click="loadProductItemGrid()"></a>
+
+									<img style="height: 20px" tooltip-placement="bottom" uib-tooltip="Delete From Cart"  src="assets/images/delete.svg" ng-click="removeFromCart(objItm)"/></div></td>
 
 
 						</tr>

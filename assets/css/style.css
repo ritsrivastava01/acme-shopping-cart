@@ -1,9 +1,22 @@
 
 /***************CSS common CSS************/
+
+.col-md-12,.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.row{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
 .container-fluid{
     padding-right:0px;
     padding-left: 0px;
 }
+img {
+     vertical-align:text-bottom;
+}
+
 .lft {
     float: left;
 }
@@ -51,21 +64,22 @@ body {
 #parent{
     width: 104%;
     white-space: nowrap;
-    text-align: right;
+
     background-color: rgba(204, 204, 204, 0.54);
-    height: 30px;
+
     /* vertical-align: middle; */
-    padding-top: 4px;
-    padding-right: 15px;
+    padding: 5px 15px;
     /* padding-left: 30px; */
     border: 1px solid #CCC;
     border-radius: 10px;
 }
 
+/*
 #parent div{
     display:inline-block;
     text-align:right;
 }
+*/
 
 
 
@@ -664,6 +678,9 @@ nav ul:after {
 
 /*******Slider CSS******/
 
+.slider.slider-horizontal{
+    width: 60% !important;
+}
 #rangeSlider .slider-selection {
     background: rgba(5, 239, 5, 0.31)
 }
@@ -679,3 +696,29 @@ nav ul:after {
     border-radius: 8px;
 }
 /**************************/
+
+/***********Admin part********/
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.rightPanel .input-group-addon:first-child {
+    border-right: 0;
+    width: 30%;
+}
+/*****************************/

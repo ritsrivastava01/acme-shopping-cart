@@ -15,7 +15,7 @@
 * */
 'use strict';
 angular.module('acmeApp')
-    .controller('checkoutCntrl',['$scope','_productdata',function($scope,_productdata){
+    .controller('checkoutCntrl',['$scope','_productdata','$state',function($scope,_productdata,$state){
 
         //Get the user cart details
         var cartData=_productdata.getArrAddToCartItem();
@@ -55,6 +55,13 @@ angular.module('acmeApp')
            // debugger;
             _productdata.updateArrAddToCartItem(objIteml);
             $scope.getTotalAmount();
+        }
+
+        $scope.loadProductItemGrid=function(){
+            //Redirect to productGrid page
+
+                $scope.$emit('loadHomePage');
+
         }
         //Function-- Make a final payment
     $scope.finalPayment=function(){
